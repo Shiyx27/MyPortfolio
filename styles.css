@@ -42,8 +42,23 @@ body {
 .header {
     background: linear-gradient(135deg, var(--primary-color), #003d82);
     color: var(--light-text);
-    padding: 40px 0;
+    padding: 40px 20px; /* Added horizontal padding */
     border-bottom: 5px solid var(--accent-color);
+    text-align: center; /* Center align content by default */
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 25px; /* Add margin to separate from social links */
+    text-align: left; /* Align text to the left within the flex item */
+}
+
+.header-text {
+    flex: 1; /* Allow text block to take available space */
 }
 
 .profile-img {
@@ -73,7 +88,7 @@ body {
     font-size: 1.2rem;
     font-weight: 300;
     max-width: 800px;
-    margin: 10px auto;
+    margin: 10px 0; /* Adjusted margin */
 }
 
 .header .lead-secondary {
@@ -81,7 +96,7 @@ body {
     font-size: 1rem;
     font-weight: 300;
     max-width: 700px;
-    margin: 20px auto;
+    margin: 20px 0; /* Adjusted margin */
     line-height: 1.6;
 }
 
@@ -227,7 +242,8 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .header {
+    .header-content {
+        flex-direction: column;
         text-align: center;
     }
 
