@@ -353,7 +353,33 @@ body {
     margin-bottom: 0;
 }
 
-/* Certificate Section */
+/* Certificate Section - make these cards match the Core Skills "popping" style */
 .certificate-card {
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
     display: flex;
+    flex-direction: column;
+}
+
+.certificate-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,86,179,0.12);
+}
+
+.certificate-card .card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.certificate-card .issuer-logo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    margin-right: 12px;
 }
