@@ -42,23 +42,9 @@ body {
 .header {
     background: linear-gradient(135deg, var(--primary-color), #003d82);
     color: var(--light-text);
-    padding: 40px 20px; /* Added horizontal padding */
+    padding: 40px 20px;
     border-bottom: 5px solid var(--accent-color);
-    text-align: center; /* Center align content by default */
-}
-
-.header-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto 25px; /* Add margin to separate from social links */
-    text-align: left; /* Align text to the left within the flex item */
-}
-
-.header-text {
-    flex: 1; /* Allow text block to take available space */
+    text-align: center;
 }
 
 .profile-img {
@@ -67,7 +53,8 @@ body {
     border-radius: 50%;
     border: 5px solid var(--accent-color);
     object-fit: cover;
-    box-shadow: var(--shadow);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
 }
 
 .name {
@@ -88,15 +75,15 @@ body {
     font-size: 1.2rem;
     font-weight: 300;
     max-width: 800px;
-    margin: 10px 0; /* Adjusted margin */
+    margin: 10px auto;
 }
 
 .header .lead-secondary {
-    color: #e9ecef; /* A slightly off-white for subtlety */
+    color: #e9ecef;
     font-size: 1rem;
     font-weight: 300;
     max-width: 700px;
-    margin: 20px 0; /* Adjusted margin */
+    margin: 20px auto;
     line-height: 1.6;
 }
 
@@ -161,6 +148,42 @@ body {
     font-size: 1.25rem;
     font-weight: 700;
 }
+
+/* Skill, Project, and Education Cards */
+.skill-category {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 4px solid var(--primary-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.skill-category:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 86, 179, 0.15);
+}
+
+.skill-category h4 {
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.skill-category p {
+    font-size: 0.95rem;
+    flex-grow: 1;
+}
+
+.project-links {
+    margin-top: auto; /* Pushes links to the bottom */
+}
+
 
 .experience-details {
     font-style: italic;
@@ -242,8 +265,7 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .header-content {
-        flex-direction: column;
+    .header {
         text-align: center;
     }
 
