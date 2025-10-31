@@ -1,0 +1,321 @@
+:root {
+    --primary-color: #0056b3; /* A slightly deeper blue */
+    --secondary-color: #f8f9fa; /* Light grey for backgrounds */
+    --accent-color: #ffc107; /* A vibrant yellow for accents */
+    --text-color: #333;
+    --light-text-color: #fff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    background-color: #f4f4f9;
+    padding-top: 56px; /* Adjust for fixed navbar */
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--primary-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    color: var(--light-text-color) !important;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent-color) !important;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, var(--primary-color), #003d82);
+    color: var(--light-text);
+    padding: 40px 0;
+    border-bottom: 5px solid var(--accent-color);
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid var(--accent-color);
+    object-fit: cover;
+    box-shadow: var(--shadow);
+}
+
+.name {
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.lead {
+    font-size: 1.4rem;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.header .lead {
+    color: var(--light-text-color);
+    font-size: 1.2rem;
+    font-weight: 300;
+    max-width: 800px;
+    margin: 10px auto;
+}
+
+.header .lead-secondary {
+    color: #e9ecef; /* A slightly off-white for subtlety */
+    font-size: 1rem;
+    font-weight: 300;
+    max-width: 700px;
+    margin: 20px auto;
+    line-height: 1.6;
+}
+
+.social-links {
+    margin-top: 25px;
+}
+
+.social-links a {
+    color: var(--light-text-color);
+    margin: 0 15px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid var(--light-text-color);
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--light-text-color);
+    color: var(--primary-color);
+}
+
+/* Content Sections */
+.content-section {
+    padding: 60px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+    text-align: center;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--accent-color);
+}
+
+/* Experience Section */
+.experience-item {
+    margin-bottom: 30px;
+    padding-left: 20px;
+    border-left: 3px solid var(--accent-color);
+    background-color: #fff;
+    padding: 25px;
+}
+
+.experience-item h3 {
+    color: #000 !important; /* Set heading color to black */
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.experience-details {
+    font-style: italic;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.experience-item ul {
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+/* Certificate & Project Cards */
+.certificate-card, .project-card {
+    background: var(--light-gray);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.certificate-card .card-body, .project-card .card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.certificate-card .card-text, .project-card .card-text {
+    flex-grow: 1;
+    margin-bottom: 1rem;
+}
+
+.issuer-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-right: 15px;
+}
+
+.certificate-card h4, .project-card h4 {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.certificate-card p, .project-card p {
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+.btn-outline-primary {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    margin-top: auto; /* Pushes button to the bottom */
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--secondary-color);
+    color: var(--light-text);
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Modal Styling */
+.modal-lg {
+    max-width: 800px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header {
+        text-align: center;
+    }
+
+    .profile-img {
+        margin-bottom: 20px;
+    }
+
+    .name {
+        font-size: 2.2rem;
+    }
+
+    .lead {
+        font-size: 1.2rem;
+    }
+
+    .social-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social-link {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
+
+.project-card .card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.project-card h4 {
+    display: flex;
+    align-items: center;
+}
+
+.project-card h4 i {
+    color: var(--accent-color);
+}
+
+.project-links {
+    margin-top: auto; /* Pushes links to the bottom */
+}
+
+.project-links .btn {
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.project-links a:hover {
+    background-color: #004494;
+}
+
+/* Skills Section */
+.skill-category {
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.skill-category h4 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-weight: 700;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+}
+
+.skill-category p {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Certificate Section */
+.certificate-card {
+    display: flex;
+}
