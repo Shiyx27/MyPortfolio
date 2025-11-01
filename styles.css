@@ -353,6 +353,7 @@ body {
     margin-bottom: 0;
 }
 
+
 /* Certificate Section - make these cards match the Core Skills "popping" style */
 .certificate-card {
     background-color: #fff;
@@ -382,4 +383,34 @@ body {
     height: 48px;
     object-fit: contain;
     margin-right: 12px;
+}
+
+/* Publication video styling */
+.publication-video {
+    display: block;
+    width: 100%;
+    max-width: 360px; /* keep videos compact on wide screens */
+    aspect-ratio: 16/9; /* enforce a consistent player box */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    object-fit: cover;
+    background-color: #000;
+}
+
+@media (max-width: 991px) {
+    /* On narrower screens allow the video to expand to the column width */
+    .publication-video {
+        max-width: 100%;
+        aspect-ratio: 16/9;
+    }
+}
+
+@media (max-width: 767px) {
+    .publication-video {
+        max-height: 220px;
+        width: 100%;
+        max-width: 100%;
+        aspect-ratio: 16/9;
+    }
 }
