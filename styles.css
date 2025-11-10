@@ -1,7 +1,7 @@
 :root {
-    --primary-color: #0056b3; /* A slightly deeper blue */
+    --primary-color: rgba(186, 39, 88, 0.753); /* A slightly deeper blue */
     --secondary-color: #f8f9fa; /* Light grey for backgrounds */
-    --accent-color: #ffc107; /* A vibrant yellow for accents */
+    --accent-color: #ef84eb56; /* A vibrant yellow for accents */
     --text-color: #333;
     --light-text-color: #fff;
 }
@@ -318,7 +318,7 @@ body {
 }
 
 .project-links a:hover {
-    background-color: #004494;
+    background-color: #8d027fc5;
 }
 
 /* Skills Section */
@@ -369,7 +369,7 @@ body {
 
 .certificate-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(0,86,179,0.12);
+    box-shadow: 0 12px 25px rgba(179, 0, 167, 0.12);
 }
 
 .certificate-card .card-body {
