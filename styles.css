@@ -385,6 +385,19 @@ body {
     margin-right: 12px;
 }
 
+.publication-citation {
+    font-size: 0.85rem;
+    color: #555;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+.publication-citation a {
+    word-break: break-all;
+}
+
 /* Publication video styling */
 .publication-video {
     display: block;
