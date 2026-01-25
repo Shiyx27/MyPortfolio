@@ -61,3 +61,26 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 300); // Match transition duration
     }
 });
+
+// Scroll Reveal Animation
+document.addEventListener('DOMContentLoaded', function() {
+    const reveals = document.querySelectorAll('.reveal-fade-up');
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target); // Only animate once
+            }
+        });
+    }, {
+        root: null,
+        threshold: 0.15, // Trigger when 15% of the element is visible
+        rootMargin: '0px 0px -50px 0px' 
+    });
+
+    reveals.forEach(element => {
+        revealObserver.observe(element);
+    });
+});
+
