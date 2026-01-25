@@ -817,3 +817,16 @@ p {
     }
 }
 
+
+/* Enforce Font Consistency on Titles */
+h1, h2, h3, h4, h5, h6,
+.section-title,
+.card-title,
+.experience-title-block h3,
+.flip-card-front h4,
+.skill-category h4,
+.certificate-card h4,
+.project-card h4 {
+    font-family: var(--font-primary) !important;
+}
+
