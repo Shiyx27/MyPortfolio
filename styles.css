@@ -4,6 +4,17 @@
     --accent-color: #ef84eb56; /* A vibrant yellow for accents */
     --text-color: #333;
     --light-text-color: #fff;
+    --dark-heading-color: #2c3e50; /* Professional dark blue-grey for headings */
+    --paragraph-color: #444; /* Softer black for reading */
+    
+    /* Typography System */
+    --font-primary: 'Roboto', sans-serif;
+    --h1-size: 2.5rem;
+    --h2-size: 2.2rem;
+    --h3-size: 1.5rem;
+    --h4-size: 1.25rem;
+    --body-size: 1rem;
+    --small-size: 0.9rem;
 }
 
 html {
@@ -11,10 +22,27 @@ html {
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--font-primary);
     color: var(--text-color);
+    font-size: var(--body-size);
+    line-height: 1.6;
     background-color: #f4f4f9;
     padding-top: 56px; /* Adjust for fixed navbar */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-primary);
+    margin-bottom: 0.5em;
+    font-weight: 700;
+}
+
+h2 { font-size: var(--h2-size); }
+h3 { font-size: var(--h3-size); }
+h4 { font-size: var(--h4-size); }
+
+p {
+    color: var(--paragraph-color);
+    margin-bottom: 1rem;
 }
 
 /* Navbar */
@@ -115,7 +143,7 @@ body {
 }
 
 .section-title {
-    font-size: 2.2rem;
+    font-size: var(--h2-size);
     font-weight: bold;
     color: var(--primary-color);
     margin-bottom: 40px;
@@ -144,8 +172,8 @@ body {
 }
 
 .experience-item h3 {
-    color: #000 !important; /* Set heading color to black */
-    font-size: 1.25rem;
+    color: var(--dark-heading-color);
+    font-size: var(--h3-size);
     font-weight: 700;
 }
 
@@ -172,11 +200,11 @@ body {
     color: var(--primary-color);
     font-weight: 700;
     margin-bottom: 15px;
-    font-size: 1.1rem;
+    font-size: var(--h4-size);
 }
 
 .skill-category p {
-    font-size: 0.95rem;
+    font-size: var(--body-size);
     flex-grow: 1;
 }
 
@@ -228,14 +256,14 @@ body {
 }
 
 .certificate-card h4, .project-card h4 {
-    font-size: 1.2rem;
+    font-size: var(--h4-size);
     color: var(--primary-color);
     font-weight: bold;
     margin-bottom: 10px;
 }
 
 .certificate-card p, .project-card p {
-    font-size: 1rem;
+    font-size: var(--body-size);
     margin-bottom: 0;
 }
 
@@ -346,12 +374,7 @@ body {
     padding-bottom: 10px;
 }
 
-.skill-category p {
-    font-size: 0.9rem;
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 0;
-}
+/* Removed duplicate skill-category p definition */
 
 
 /* Certificate Section - make these cards match the Core Skills "popping" style */
@@ -386,8 +409,8 @@ body {
 }
 
 .publication-citation {
-    font-size: 0.85rem;
-    color: #555;
+    font-size: var(--small-size);
+    color: var(--paragraph-color);
     margin-top: 10px;
     margin-bottom: 10px;
     font-style: italic;
@@ -496,14 +519,14 @@ body {
     color: var(--primary-color);
     font-weight: 700;
     margin-bottom: 12px;
-    font-size: 1.15rem;
+    font-size: var(--h4-size);
     border-bottom: 2px solid var(--accent-color);
     padding-bottom: 8px;
 }
 
 .flip-card-front p {
-    font-size: 0.95rem;
-    color: #444;
+    font-size: var(--body-size);
+    color: var(--paragraph-color);
     line-height: 1.5;
     margin-bottom: 5px;
 }
@@ -760,15 +783,15 @@ body {
 
 .experience-title-block h3 {
     margin: 0;
-    font-size: 1.5rem;
+    font-size: var(--h3-size);
     font-weight: 800;
-    color: #2c3e50; /* Darker title for readability */
+    color: var(--dark-heading-color);
 }
 
 .experience-title-block .experience-details {
     margin: 5px 0 0;
-    font-size: 1rem;
-    color: #555;
+    font-size: var(--body-size);
+    color: var(--paragraph-color);
     font-style: normal; /* Remove italic for cleaner look */
 }
 
