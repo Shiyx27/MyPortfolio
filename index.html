@@ -3,1532 +3,732 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shiyamaladevi R S - Portfolio</title>
-    <!-- Google Fonts: Roboto -->
+    <title>Shiyamaladevi R S | RF & Space Telemetry Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles_flip.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Shiyamaladevi R S</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#honors">Honors</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#publications">Publications</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#certificates">Certificates</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#extracurricular">Activities</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#languages">Languages</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <!-- Mathematical RF Visualization Layers -->
+    <canvas id="smithChartCanvas" class="smith-chart-canvas" aria-hidden="true"></canvas>
+    <div class="smith-chart-bg" aria-hidden="true"></div>
+    <div class="orbital-noise-bg" aria-hidden="true"></div>
+    <div class="wireframe-layer" aria-hidden="true">
+        <div class="wire-object wire-torus"></div>
+        <div class="wire-object wire-dish"></div>
+        <div class="wire-object wire-sphere"></div>
+    </div>
+    <div class="bg-vignette" aria-hidden="true"></div>
+    
+    <!-- Custom Telemetry Cursor -->
+    <div class="cursor-orb" id="cursorOrb" aria-hidden="true"></div>
 
-    <header class="header">
-        <img src="Other_Images/piccForPortfolio.jpg" alt="Shiyamala Devi R S" class="profile-img reveal-fade-up">
-        <p class="lead reveal-fade-up">Machine Learning | IoT | Research</p>
-        <p class="lead-secondary reveal-fade-up">
-            Curious mind with a love for all things tech and beyond. From pre-med to a bachelor’s in Electronics & Communication, I’ve explored Machine Learning, IoT, Arduino, ESP32, Supply Chain Management, and Robotics—one project at a time. 
-            When I’m not tinkering with circuits or code, you’ll find me playing keyboard, practicing yoga, or immersed in Bharatanatyam and Carnatic music. 
-            Currently geeking out over Quantum Technology!
-        </p>
-        <div class="social-links reveal-fade-up">
-            <a href="https://www.linkedin.com/in/shiyamaladevi-r-s-shiy27/" target="_blank">LinkedIn</a>
-            <a href="https://github.com/Shiyx27" target="_blank">GitHub</a>
-            <a href="https://shiyx27.github.io/MacOsPortfolio/" target="_blank">Portfolio (MacOS)</a>
-            <a href="https://medium.com/@shiyamaladevi.rs27" target="_blank">Blogs</a>
-            <a href="https://orcid.org/0009-0008-8536-7667" target="_blank">ORCID</a>
-            <a href="mailto:shiyamaladevirs@gmail.com">Email</a>
-            <a href="ResumeJan2026.pdf" download="ShiyamalaDevi_Resume_January_2026.pdf">Download CV</a>
-        </div>
+    <header class="site-header">
+        <nav class="nav-shell">
+            <a href="#top" class="brand mono">SHIY27 // RF</a>
+            <button class="nav-toggle mono" id="navToggle" aria-expanded="false" aria-controls="navLinks">MENU</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#honors">Honors</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#extracurricular">Activities</a></li>
+                <li><a href="#languages">Languages</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Honors & Awards Section -->
-    <div class="container content-section" id="honors">
-        <h2 class="section-title reveal-fade-up">Honors & Awards</h2>
-        <div class="row">
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="flip-card reveal-fade-up">
+    <main id="top" class="page-shell">
+        <section class="hero-shell">
+            <article class="glass-panel hero-intro reveal-fade-up">
+                <div class="profile-header">
+                    <img src="Other_Images/piccForPortfolio.jpg" alt="Shiyamaladevi R S" class="hero-pfp">
+                    <div>
+                        <p class="mono tag">Incoming MSc @ Politecnico di Milano</p>
+                        <h1>Shiyamaladevi R S</h1>
+                        <h2>Telecommunications Engineering • RF &amp; Microwaves • Orbit Systems</h2>
+                    </div>
+                </div>
+                <p class="intro-text">
+                    I’m an incoming MSc Telecommunications Engineering student specializing in RF, microwaves,
+                    and high-integrity communications systems for aerospace and advanced telemetry applications.
+                    I build with a research mindset and ship with engineering precision.
+                </p>
+                <p class="intro-text">
+                    Curious mind with a love for all things tech and beyond. From pre-med to a bachelor’s in
+                    Electronics &amp; Communication, I’ve explored Machine Learning, IoT, Arduino, ESP32, Supply
+                    Chain Management, and Robotics—one project at a time.
+                </p>
+                <p class="intro-text">
+                    When I’m not tinkering with circuits or code, you’ll find me playing keyboard, practicing yoga,
+                    or immersed in Bharatanatyam and Carnatic music. Currently geeking out over Quantum Technology!
+                </p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/shiyamaladevi-r-s-shiy27/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://github.com/Shiyx27" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://shiyx27.github.io/MacOsPortfolio/" target="_blank" rel="noopener noreferrer">Portfolio (MacOS)</a>
+                    <a href="https://medium.com/@shiyamaladevi.rs27" target="_blank" rel="noopener noreferrer">Blogs</a>
+                    <a href="https://orcid.org/0009-0008-8536-7667" target="_blank" rel="noopener noreferrer">ORCID</a>
+                    <a href="mailto:shiyamaladevirs@gmail.com">Email</a>
+                    <a href="ResumeJan2026.pdf" download="ShiyamalaDevi_Resume_January_2026.pdf">Download CV</a>
+                </div>
+            </article>
+
+            <!-- ARCHITECTURAL UPDATE: Interactive Digital Archive Section -->
+            <article class="glass-panel hero-stage reveal-fade-up archive-stage" id="archiveStage">
+                <div class="hero-stage-grid" aria-hidden="true"></div>
+                
+                <div class="digital-archive-grid" id="digitalArchive">
+                    <!-- Media Node 1 -->
+                    <div class="archive-media-node" data-node-id="1">
+                        <div class="node-content placeholder">
+                            <span class="mono">MEDIA_01 // UPLINK</span>
+                            <!-- INSERT VIDEO OR IMAGE ASSETS HERE -->
+                            <!-- Example: <video src="assets/uplink.mp4" autoplay loop muted playsinline></video> -->
+                        </div>
+                    </div>
+                    
+                    <!-- Media Node 2 -->
+                    <div class="archive-media-node" data-node-id="2">
+                        <div class="node-content placeholder">
+                            <span class="mono">MEDIA_02 // ORBIT</span>
+                            <!-- INSERT VIDEO OR IMAGE ASSETS HERE -->
+                        </div>
+                    </div>
+                    
+                    <!-- Media Node 3 -->
+                    <div class="archive-media-node" data-node-id="3">
+                        <div class="node-content placeholder">
+                            <span class="mono">MEDIA_03 // RF_DATA</span>
+                            <!-- INSERT VIDEO OR IMAGE ASSETS HERE -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hardware-Accelerated Telemetry Spark Infrastructure -->
+                <div class="spark-node dynamic-spark" id="cursorSparkNode"></div>
+                <div class="spark-link dynamic-link" id="dynamicSparkLink"></div>
+
+                <p class="mono stage-caption archive-caption">Creation of Signal // interactive telemetry archive</p>
+            </article>
+        </section>
+
+        <!-- Unaltered Primary Portfolio Content -->
+        <section id="honors" class="content-section">
+            <div class="section-title reveal-fade-up">
+                <p class="mono">SIGNAL ACHIEVEMENTS</p>
+                <h2>Honors &amp; Awards</h2>
+            </div>
+            <div class="cards-grid honors-grid">
+                <article class="flip-card reveal-fade-up">
                     <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <h4>Best Paper Award</h4>
-                            <p><strong>ICCCSMD 2024 (IEEE)</strong></p>
+                        <div class="flip-card-face flip-front">
+                            <h3>Best Paper Award</h3>
+                            <p class="mono meta">ICCCSMD 2024 (IEEE)</p>
                             <p>“Alleviating Muscle Fatigue in Robotic Prosthetic Arms Through Multi-sensor Fusion and Adaptive Real-Time Grip Assistance”</p>
                         </div>
-                        <div class="flip-card-back">
-                            <div class="flip-card-back-gallery">
-                                <img src="Honors&Awards/BestPaperAward01.jpg" alt="Best Paper 1">
-                                <img src="Honors&Awards/BestPaper02.jpg" alt="Best Paper 2">
-                                <img src="Honors&Awards/BestPaper03.jpg" alt="Best Paper 3">
+                        <div class="flip-card-face flip-back">
+                            <div class="back-gallery">
+                                <img src="Honors&Awards/BestPaperAward01.jpg" alt="Best Paper 1" data-lightbox>
+                                <img src="Honors&Awards/BestPaper02.jpg" alt="Best Paper 2" data-lightbox>
+                                <img src="Honors&Awards/BestPaper03.jpg" alt="Best Paper 3" data-lightbox>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                </article>
 
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="flip-card reveal-fade-up">
+                <article class="flip-card reveal-fade-up">
                     <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <h4>Patent</h4>
-                            <p><strong>Published Feb 2025</strong></p>
+                        <div class="flip-card-face flip-front">
+                            <h3>Patent</h3>
+                            <p class="mono meta">Published Feb 2025</p>
                             <p>“A System For Prosthetic Arm with Non-Invasive Sensory Regeneration”</p>
                         </div>
-                        <div class="flip-card-back">
-                            <div class="flip-card-back-gallery">
-                                <img src="Honors&Awards/Patent01.jpg" alt="Patent 1">
-                                <img src="Honors&Awards/Patent02.jpg" alt="Patent 2">
+                        <div class="flip-card-face flip-back">
+                            <div class="back-gallery">
+                                <img src="Honors&Awards/Patent01.jpg" alt="Patent 1" data-lightbox>
+                                <img src="Honors&Awards/Patent02.jpg" alt="Patent 2" data-lightbox>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                </article>
 
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="flip-card reveal-fade-up">
+                <article class="flip-card reveal-fade-up">
                     <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <h4>Honorable Mention</h4>
-                            <p><strong>Cod´edex Game Jam 2025</strong> | Dec 2025</p>
+                        <div class="flip-card-face flip-front">
+                            <h3>Honorable Mention</h3>
+                            <p class="mono meta">Cod´edex Game Jam 2025 | Dec 2025</p>
                             <p>Built “Sip N Snuggle Cafe”, a cozy sim game themed Changing of Time.</p>
-                            <a href="https://cafe-sipnsnuggle.vercel.app/" target="_blank" class="btn btn-sm btn-outline-primary mt-2">View Project</a>
+                            <a class="inline-link" href="https://cafe-sipnsnuggle.vercel.app/" target="_blank" rel="noopener noreferrer">View Project</a>
                         </div>
-                        <div class="flip-card-back">
-                            <div class="flip-card-back-gallery">
-                                <img src="Honors&Awards/cafe_sipNSnuggle.png" alt="Cafe Game">
-                                <img src="Honors&Awards/Codedex.png" alt="Codedex">
+                        <div class="flip-card-face flip-back">
+                            <div class="back-gallery">
+                                <img src="Honors&Awards/cafe_sipNSnuggle.png" alt="Cafe Game" data-lightbox>
+                                <img src="Honors&Awards/Codedex.png" alt="Codedex" data-lightbox>
                             </div>
-                            <a href="https://cafe-sipnsnuggle.vercel.app/" target="_blank" class="btn btn-sm btn-outline-primary mt-2">View Project</a>
+                            <a class="inline-link" href="https://cafe-sipnsnuggle.vercel.app/" target="_blank" rel="noopener noreferrer">View Project</a>
                         </div>
                     </div>
-                </div>
-            </div>
+                </article>
 
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="flip-card reveal-fade-up">
+                <article class="flip-card reveal-fade-up">
                     <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <h4>Top 50 Teams</h4>
-                            <p><strong>Xylem Global Student Innovation Challenge</strong> | Aug 2025</p>
+                        <div class="flip-card-face flip-front">
+                            <h3>Top 50 Teams</h3>
+                            <p class="mono meta">Xylem Global Student Innovation Challenge | Aug 2025</p>
                             <p>Ranked Top 50 globally in 8-week challenge tackling glacier loss and water disasters; $20k prize pool track; Won cash prize.</p>
-                            <a href="https://environmentalguardian.onrender.com/" target="_blank" class="btn btn-sm btn-outline-primary mt-2">View Project</a>
+                            <a class="inline-link" href="https://environmentalguardian.onrender.com/" target="_blank" rel="noopener noreferrer">View Project</a>
                         </div>
-                        <div class="flip-card-back">
-                            <div class="flip-card-back-gallery">
-                                <img src="Honors&Awards/Xylem01.png" alt="Xylem 1">
-                                <img src="Honors&Awards/xylem02.png" alt="Xylem 2">
+                        <div class="flip-card-face flip-back">
+                            <div class="back-gallery">
+                                <img src="Honors&Awards/Xylem01.png" alt="Xylem 1" data-lightbox>
+                                <img src="Honors&Awards/xylem02.png" alt="Xylem 2" data-lightbox>
                             </div>
-                            <a href="https://environmentalguardian.onrender.com/" target="_blank" class="btn btn-sm btn-outline-primary mt-2">View Project</a>
+                            <a class="inline-link" href="https://environmentalguardian.onrender.com/" target="_blank" rel="noopener noreferrer">View Project</a>
                         </div>
                     </div>
-                </div>
-            </div>
+                </article>
 
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="flip-card reveal-fade-up">
+                <article class="flip-card reveal-fade-up">
                     <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <h4>Your Big Year Fellowship</h4>
-                            <p><strong>Global Cohort Selection</strong> | Jul 2024</p>
+                        <div class="flip-card-face flip-front">
+                            <h3>Your Big Year Fellowship</h3>
+                            <p class="mono meta">Global Cohort Selection | Jul 2024</p>
                             <p>Selected for 3-month accelerator with 12 coaching calls; collaborated on UN SDGs with peers from 50+ countries.</p>
                         </div>
-                        <div class="flip-card-back">
-                            <div class="flip-card-back-gallery">
-                                <img src="Honors&Awards/YbY01.jpg" alt="Your Big Year 1">
-                                <img src="Honors&Awards/YBY02.jpg" alt="Your Big Year 2">
+                        <div class="flip-card-face flip-back">
+                            <div class="back-gallery">
+                                <img src="Honors&Awards/YbY01.jpg" alt="Your Big Year 1" data-lightbox>
+                                <img src="Honors&Awards/YBY02.jpg" alt="Your Big Year 2" data-lightbox>
                             </div>
                         </div>
                     </div>
-                </div>
+                </article>
             </div>
-        </div>
-    </div>
+        </section>
 
-  <div class="container content-section" id="publications">
-    <h2 class="section-title reveal-fade-up">Publications</h2>
-
-    <!-- Publication 1: Federated EEG -->
-    <div class="experience-item reveal-fade-up">
-      <div class="row align-items-start">
-        <div class="col-md-8">
-          <h3>Security Auditing & Malicious Client Blocking in Federated EEG Seizure Detection</h3>
-          <p class="experience-details"><em>Presented at IEEE ICCIDS 2026. (Acceptance Rate: ∼17.8%)</em></p>
-          <p class="publication-citation">
-            Shiyamaladevi R S, Swaroop S Kaimal, Jeetashree Aparajeeta. Security Auditing and Ultra-Strict Malicious Client
-Blocking in Federated EEG Seizure Detection. 
-          </p>
-          <ul>
-            <li>Engineered a three-tier attestation-based federated learning framework integrating HMAC-SHA256 for secure client verification.</li>
-            <li>Achieved 97.5% accuracy in no-attack and 95.2% accuracy under 30% malicious clients, with 98.7% attack detection rate.</li>
-            <li>Optimized lightweight CNN models for Raspberry Pi deployment, achieving 18 ms inference latency with 99% validation accuracy.</li>
-            <li>Established a HIPAA/GDPR-compliant architecture enabling secure, privacy-preserving clinical AI for distributed seizure detection.</li>
-          </ul>
-        </div>
-        <div class="col-md-4 mt-3 mt-md-0">
-          <video class="publication-video" controls preload="metadata">
-            <source src="Paper%20Videos/AI_Guarding_Your_Brainwaves.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
-    </div>
-
-    <!-- Publication 2: Swara-Net -->
-    <div class="experience-item reveal-fade-up">
-      <div class="row align-items-start">
-        <div class="col-md-8">
-          <h3>Swara-Net: A Deep Learning Baseline for Under-Represented Carnatic Ragas</h3>
-          <p class="experience-details"><em>Presented at Dec IEEEINDICON’2025</em></p>
-          <p class="publication-citation">
-            Shiyamaladevi R S. Swara-Net: A Deep Learning Baseline and Curated Dataset for Five Under-Represented Carnatic
-            Ragas. TechRxiv. October 31, 2025.  DOI: <a href="https://doi.org/10.36227/techrxiv.176281084.44193627/v1" target="_blank">10.36227/techrxiv.176281084.44193627/v1</a>
-          </p>
-          <ul>
-            <li>Curated a diverse dataset of 638 audio snippets across five ragas (Shankarabharanam, Revathi, Abheri, Brindavanasaranga, Mayamalavagowla).</li>
-            <li>Designed Swara-Net, a 3-layer Deep Neural Network achieving 99.0% classification accuracy, outperforming SVM by 42%.</li>
-            <li>Conducted detailed musicological error analysis of the model’s misclassification patterns and published the open-source dataset for reproducibility.</li>
-            <li>Pioneered the first computational baseline for these five ragas, contributing to computational ethnomusicology research in Indian classical music.</li>
-          </ul>
-        </div>
-        <div class="col-md-4 mt-3 mt-md-0">
-          <video class="publication-video" controls preload="metadata">
-            <source src="Paper%20Videos/Swara-Net__Teaching_AI_Music.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
-    </div>
-
-    <!-- Publication 3: Alleviating Muscle Fatigue -->
-    <div class="experience-item reveal-fade-up">
-      <div class="row align-items-start">
-        <div class="col-md-8">
-          <h3>Alleviating Muscle Fatigue in Robotic Prosthetic Arms via Multi-Sensor Fusion</h3>
-          <p class="experience-details"><em>Completed - Published in IEEE</em></p>
-          <p class="publication-citation">
-            Manimaran, P., Ashwin, J. B., Swaroop, S. K., & Shiyamaladevi, R. S. (2024, December). Alleviating Muscle Fatigue in Robotic
-            Prosthetic Arms Through Multi-Sensor Fusion and Adaptive Real-Time Grip Assistance. In 2024 International Conference on
-            Communication, Computing, Smart Materials and Devices (ICCCSMD) (pp. 1-12). IEEE.
-            DOI: <a href="https://doi.org/10.1109/ICCCSMD63546.2024.11015135" target="_blank">10.1109/ICCCSMD63546.2024.11015135</a>
-          </p>
-          <ul>
-            <li>Designed a multi-sensor adaptive control system integrating EMG signals, computer vision, and pressure feedback to optimize grip force.</li>
-            <li>Proposed a real-time fatigue detection algorithm reducing muscle strain and improving prosthetic control comfort.</li>
-            <li>Validated feasibility for hardware-level integration with existing prosthetic arms, enhancing long-term usability and efficiency.</li>
-          </ul>
-        </div>
-        <div class="col-md-4 mt-3 mt-md-0">
-          <video class="publication-video" controls preload="metadata">
-            <source src="Paper%20Videos/Alleviating_Muscle_Fatigue.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
-    </div>
-
-    <!-- Publication 4: Open Box Delivery -->
-    <div class="experience-item reveal-fade-up">
-      <div class="row align-items-start">
-        <div class="col-md-8">
-          <h3>Automated Classification of E-Commerce Packaging for Open Box Delivery</h3>
-          
-          <p class="publication-citation">
-            Shiyamaladevi R S, Jeetashree Aparajeeta. Automated Classification of E-Commerce Packaging for Open Box Delivery: A Transfer
-            Learning Solution. TechRxiv. November 10, 2025. DOI: <a href="https://doi.org/10.36227/techrxiv.176281084.44193627/v1" target="_blank">10.36227/techrxiv.176281084.44193627/v1</a>
-          </p>
-          <ul>
-            <li>Developed a transfer learning–based image classification pipeline to detect poor-quality packaging images (Blur/Dark/Random, Primary/Secondary Package).</li>
-            <li>Achieved 89% overall accuracy and 96% recall for low-quality images using fine-tuned CNN architectures (ResNet50 + augmentation).</li>
-            <li>Deployed an end-to-end automated workflow integrated with Google Sheets—allowing non-technical operators to run real-time OBD quality checks without coding.</li>
-            <li>Reduced manual inspection overhead by 60%, improving packaging integrity assurance across last-mile delivery systems.</li>
-          </ul>
-        </div>
-        <div class="col-md-4 mt-3 mt-md-0">
-          <video class="publication-video" controls preload="metadata">
-            <source src="Paper%20Videos/AI_for_Open_Box_Delivery.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
-  </div>
-
-  </div>
-
-   
-
-    <!-- Experience Section -->
-    <div class="container content-section" id="experience">
-        <h2 class="section-title reveal-fade-up">Experience</h2>
-
-        <!-- Experience 1: Research Assistant (VIT) -->
-        <div class="experience-card reveal-fade-up">
-            <div class="experience-header">
-                <img src="Company_logo/vit_icon.jpeg" alt="VIT Logo" class="company-logo">
-                <div class="experience-title-block">
-                    <h3>Research Assistant</h3>
-                    <p class="experience-details"><strong>Center for Neuroinformatics (Vellore Institute of Technology)</strong> | May 2025 - Aug 2025</p>
-                </div>
+        <section id="publications" class="content-section">
+            <div class="section-title reveal-fade-up">
+                <p class="mono">RESEARCH TELEMETRY</p>
+                <h2>Publications</h2>
             </div>
-            <div class="experience-body">
-                <ul>
-                    <li>Designed a cryptographically secured federated learning framework using HMAC-SHA256 and AES-256, enabling privacy-preserving model training across 25 simulated medical devices.</li>
-                    <li>Developed an ultra-lightweight CNN (0.54 MB, 140K parameters) optimized for Raspberry Pi, achieving &lt;15 ms inference latency and 98%+ clinical accuracy in real-time seizure detection.</li>
-                    <li>Implemented a Byzantine fault-tolerant aggregation system with dynamic trust scoring to ensure robustness against adversarial and faulty nodes.</li>
-                </ul>
-            </div>
-        </div>
+            <div class="flow-panels">
+                <article class="glass-panel reveal-fade-up">
+                    <h3>Security Auditing &amp; Malicious Client Blocking in Federated EEG Seizure Detection</h3>
+                    <p class="mono meta">Presented at IEEE ICCIDS 2026. (Acceptance Rate: ∼17.8%)</p>
+                    <p class="citation">Shiyamaladevi R S, Swaroop S Kaimal, Jeetashree Aparajeeta. Security Auditing and Ultra-Strict Malicious Client Blocking in Federated EEG Seizure Detection.</p>
+                    <ul>
+                        <li>Engineered a three-tier attestation-based federated learning framework integrating HMAC-SHA256 for secure client verification.</li>
+                        <li>Achieved 97.5% accuracy in no-attack and 95.2% accuracy under 30% malicious clients, with 98.7% attack detection rate.</li>
+                        <li>Optimized lightweight CNN models for Raspberry Pi deployment, achieving 18 ms inference latency with 99% validation accuracy.</li>
+                        <li>Established a HIPAA/GDPR-compliant architecture enabling secure, privacy-preserving clinical AI for distributed seizure detection.</li>
+                    </ul>
+                    <video class="publication-video" controls preload="metadata">
+                        <source src="Paper%20Videos/AI_Guarding_Your_Brainwaves.mp4" type="video/mp4">
+                    </video>
+                </article>
 
-        <!-- Experience 2: Flipkart -->
-        <div class="experience-card reveal-fade-up">
-            <div class="experience-header">
-                <img src="Company_logo/flipkart_logo.jpeg" alt="Flipkart Logo" class="company-logo">
-                <div class="experience-title-block">
-                    <h3>Supply Chain Machine Learning Intern</h3>
-                    <p class="experience-details"><strong>FLIPKART</strong> | Feb 2025 – Jun 2025 | Chennai, India</p>
-                </div>
-            </div>
-            <div class="experience-body">
-                <ul>
-                    <li>Engineered Python tool processing 1.3M records across multiple hubs, reducing time from 5 hours to 200 seconds—a 99.8% reduction (432× efficiency boost).</li>
-                    <li>Developed and deployed ML algorithms for Open Box delivery with 90%+ accuracy, improving fault detection and cutting operational downtime.</li>
-                    <li>Built a prototype Chrome extension identifying and mitigating last-mile delivery risks, ensuring improved reliability.</li>
-                </ul>
-            </div>
-        </div>
+                <article class="glass-panel reveal-fade-up">
+                    <h3>Swara-Net: A Deep Learning Baseline for Under-Represented Carnatic Ragas</h3>
+                    <p class="mono meta">Presented at Dec IEEEINDICON’2025</p>
+                    <p class="citation">Shiyamaladevi R S. Swara-Net: A Deep Learning Baseline and Curated Dataset for Five Under-Represented Carnatic Ragas. TechRxiv. October 31, 2025. DOI: <a href="https://doi.org/10.36227/techrxiv.176281084.44193627/v1" target="_blank" rel="noopener noreferrer">10.36227/techrxiv.176281084.44193627/v1</a></p>
+                    <ul>
+                        <li>Curated a diverse dataset of 638 audio snippets across five ragas (Shankarabharanam, Revathi, Abheri, Brindavanasaranga, Mayamalavagowla).</li>
+                        <li>Designed Swara-Net, a 3-layer Deep Neural Network achieving 99.0% classification accuracy, outperforming SVM by 42%.</li>
+                        <li>Conducted detailed musicological error analysis of the model’s misclassification patterns and published the open-source dataset for reproducibility.</li>
+                        <li>Pioneered the first computational baseline for these five ragas, contributing to computational ethnomusicology research in Indian classical music.</li>
+                    </ul>
+                    <video class="publication-video" controls preload="metadata">
+                        <source src="Paper%20Videos/Swara-Net__Teaching_AI_Music.mp4" type="video/mp4">
+                    </video>
+                </article>
 
-        <!-- Experience 3: Stanford Code in Place -->
-        <div class="experience-card reveal-fade-up">
-            <div class="experience-header">
-                <img src="Company_logo/Stanford.jpg" alt="Stanford Logo" class="company-logo">
-                <div class="experience-title-block">
-                    <h3>Section Leader</h3>
-                    <p class="experience-details"><strong>STANFORD CODE IN PLACE</strong> | Apr 2025 - June 2025</p>
-                </div>
-            </div>
-            <div class="experience-body">
-                <ul>
-                    <li>Led a 6-week Python programming section, teaching 15 students core concepts including variables, control flow, functions, lists, and dictionaries.</li>
-                    <li>Facilitated weekly interactive coding sessions, provided personalized feedback, and supported student learning through hands-on exercises.</li>
-                </ul>
-            </div>
-        </div>
+                <article class="glass-panel reveal-fade-up">
+                    <h3>Alleviating Muscle Fatigue in Robotic Prosthetic Arms via Multi-Sensor Fusion</h3>
+                    <p class="mono meta">Completed - Published in IEEE</p>
+                    <p class="citation">Manimaran, P., Ashwin, J. B., Swaroop, S. K., &amp; Shiyamaladevi, R. S. (2024, December). Alleviating Muscle Fatigue in Robotic Prosthetic Arms Through Multi-Sensor Fusion and Adaptive Real-Time Grip Assistance. In 2024 International Conference on Communication, Computing, Smart Materials and Devices (ICCCSMD) (pp. 1-12). IEEE. DOI: <a href="https://doi.org/10.1109/ICCCSMD63546.2024.11015135" target="_blank" rel="noopener noreferrer">10.1109/ICCCSMD63546.2024.11015135</a></p>
+                    <ul>
+                        <li>Designed a multi-sensor adaptive control system integrating EMG signals, computer vision, and pressure feedback to optimize grip force.</li>
+                        <li>Proposed a real-time fatigue detection algorithm reducing muscle strain and improving prosthetic control comfort.</li>
+                        <li>Validated feasibility for hardware-level integration with existing prosthetic arms, enhancing long-term usability and efficiency.</li>
+                    </ul>
+                    <video class="publication-video" controls preload="metadata">
+                        <source src="Paper%20Videos/Alleviating_Muscle_Fatigue.mp4" type="video/mp4">
+                    </video>
+                </article>
 
-        <!-- Experience 4: AWS Project Intern (ETHNUS) -->
-        <div class="experience-card reveal-fade-up">
-            <div class="experience-header">
-                <img src="Company_logo/ethnus_logo.jpeg" alt="Ethnus Logo" class="company-logo">
-                <div class="experience-title-block">
-                    <h3>AWS Project Intern</h3>
-                    <p class="experience-details"><strong>ETHNUS</strong> | Aug 2023 – Dec 2023 | Remote</p>
-                </div>
+                <article class="glass-panel reveal-fade-up">
+                    <h3>Automated Classification of E-Commerce Packaging for Open Box Delivery</h3>
+                    <p class="citation">Shiyamaladevi R S, Jeetashree Aparajeeta. Automated Classification of E-Commerce Packaging for Open Box Delivery: A Transfer Learning Solution. TechRxiv. November 10, 2025. DOI: <a href="https://doi.org/10.36227/techrxiv.176281084.44193627/v1" target="_blank" rel="noopener noreferrer">10.36227/techrxiv.176281084.44193627/v1</a></p>
+                    <ul>
+                        <li>Developed a transfer learning–based image classification pipeline to detect poor-quality packaging images (Blur/Dark/Random, Primary/Secondary Package).</li>
+                        <li>Achieved 89% overall accuracy and 96% recall for low-quality images using fine-tuned CNN architectures (ResNet50 + augmentation).</li>
+                        <li>Deployed an end-to-end automated workflow integrated with Google Sheets—allowing non-technical operators to run real-time OBD quality checks without coding.</li>
+                        <li>Reduced manual inspection overhead by 60%, improving packaging integrity assurance across last-mile delivery systems.</li>
+                    </ul>
+                    <video class="publication-video" controls preload="metadata">
+                        <source src="Paper%20Videos/AI_for_Open_Box_Delivery.mp4" type="video/mp4">
+                    </video>
+                </article>
             </div>
-            <div class="experience-body">
-                <ul>
-                    <li>Implemented Amazon EC2 and Elastic Beanstalk to host and scale an E-Health Record Management System, enhancing performance and responsiveness.</li>
-                    <li>Utilized Amazon S3 for efficient storage of diagnostic images, established role-based access control, and leveraged AWS RDS, Lambda, and CloudWatch for a robust system.</li>
-                </ul>
-            </div>
-        </div>
+        </section>
 
-        <!-- Experience 5: Saipem -->
-        <div class="experience-card reveal-fade-up">
-             <div class="experience-header">
-                <img src="Company_logo/Saipem_logo.jpeg" alt="Saipem Logo" class="company-logo">
-                <div class="experience-title-block">
-                    <h3>Instrumentation Intern</h3>
-                    <p class="experience-details"><strong>SAIPEM INDIA PROJECTS PVT LTD</strong> | Sept 2023 – Oct 2023 | Chennai, India</p>
-                </div>
+        <section id="experience" class="content-section">
+            <div class="section-title reveal-fade-up">
+                <p class="mono">SYSTEMS EXPERIENCE</p>
+                <h2>Experience</h2>
             </div>
-            <div class="experience-body">
-                <ul>
-                    <li>Ensured compliance with engineering specifications through P&ID checks and streamlined data sheet validation.</li>
-                    <li>Built a foundation in oil & gas operations, control systems, and instrumentation using SmartPlant software.</li>
-                </ul>
+            <div class="flow-panels">
+                <article class="glass-panel reveal-fade-up">
+                    <div class="entry-head"><img src="Company_logo/vit_icon.jpeg" alt="VIT Logo" class="company-logo"><div><h3>Research Assistant</h3><p class="mono meta">Center for Neuroinformatics (Vellore Institute of Technology) | May 2025 - Aug 2025</p></div></div>
+                    <ul>
+                        <li>Designed a cryptographically secured federated learning framework using HMAC-SHA256 and AES-256, enabling privacy-preserving model training across 25 simulated medical devices.</li>
+                        <li>Developed an ultra-lightweight CNN (0.54 MB, 140K parameters) optimized for Raspberry Pi, achieving &lt;15 ms inference latency and 98%+ clinical accuracy in real-time seizure detection.</li>
+                        <li>Implemented a Byzantine fault-tolerant aggregation system with dynamic trust scoring to ensure robustness against adversarial and faulty nodes.</li>
+                    </ul>
+                </article>
+                <article class="glass-panel reveal-fade-up">
+                    <div class="entry-head"><img src="Company_logo/flipkart_logo.jpeg" alt="Flipkart Logo" class="company-logo"><div><h3>Supply Chain Machine Learning Intern</h3><p class="mono meta">FLIPKART | Feb 2025 – Jun 2025 | Chennai, India</p></div></div>
+                    <ul>
+                        <li>Engineered Python tool processing 1.3M records across multiple hubs, reducing time from 5 hours to 200 seconds—a 99.8% reduction (432× efficiency boost).</li>
+                        <li>Developed and deployed ML algorithms for Open Box delivery with 90%+ accuracy, improving fault detection and cutting operational downtime.</li>
+                        <li>Built a prototype Chrome extension identifying and mitigating last-mile delivery risks, ensuring improved reliability.</li>
+                    </ul>
+                </article>
+                <article class="glass-panel reveal-fade-up">
+                    <div class="entry-head"><img src="Company_logo/Stanford.jpg" alt="Stanford Logo" class="company-logo"><div><h3>Section Leader</h3><p class="mono meta">STANFORD CODE IN PLACE | Apr 2025 - June 2025</p></div></div>
+                    <ul>
+                        <li>Led a 6-week Python programming section, teaching 15 students core concepts including variables, control flow, functions, lists, and dictionaries.</li>
+                        <li>Facilitated weekly interactive coding sessions, provided personalized feedback, and supported student learning through hands-on exercises.</li>
+                    </ul>
+                </article>
+                <article class="glass-panel reveal-fade-up">
+                    <div class="entry-head"><img src="Company_logo/ethnus_logo.jpeg" alt="Ethnus Logo" class="company-logo"><div><h3>AWS Project Intern</h3><p class="mono meta">ETHNUS | Aug 2023 – Dec 2023 | Remote</p></div></div>
+                    <ul>
+                        <li>Implemented Amazon EC2 and Elastic Beanstalk to host and scale an E-Health Record Management System, enhancing performance and responsiveness.</li>
+                        <li>Utilized Amazon S3 for efficient storage of diagnostic images, established role-based access control, and leveraged AWS RDS, Lambda, and CloudWatch for a robust system.</li>
+                    </ul>
+                </article>
+                <article class="glass-panel reveal-fade-up">
+                    <div class="entry-head"><img src="Company_logo/Saipem_logo.jpeg" alt="Saipem Logo" class="company-logo"><div><h3>Instrumentation Intern</h3><p class="mono meta">SAIPEM INDIA PROJECTS PVT LTD | Sept 2023 – Oct 2023 | Chennai, India</p></div></div>
+                    <ul>
+                        <li>Ensured compliance with engineering specifications through P&amp;ID checks and streamlined data sheet validation.</li>
+                        <li>Built a foundation in oil &amp; gas operations, control systems, and instrumentation using SmartPlant software.</li>
+                    </ul>
+                </article>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <!-- Projects Section -->
-    <div class="container content-section" id="projects">
-        <h2 class="section-title reveal-fade-up">Projects</h2>
-        <div class="row">
-            <!-- Project 1: Star Wars Sith Photobooth -->
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="skill-category reveal-fade-up h-100 d-flex flex-column">
-                    <h4><i class="fab fa-galactic-republic me-2"></i> Star Wars Sith Photobooth</h4>
-                    <p>An immersive web app that transforms users into Star Wars characters using real-time AI face detection and mask overlays. Built with MediaPipe, a Flask backend, and deployed as a PWA.</p>
-                    <div class="project-links mt-auto">
-                        <a href="https://github.com/Shiyx27/StarWarsThemed" target="_blank" class="btn btn-outline-secondary btn-sm"><i class="fab fa-github"></i> GitHub</a>
+        <section id="projects" class="content-section">
+            <div class="section-title reveal-fade-up"><p class="mono">ENGINEERING BUILD LOG</p><h2>Projects</h2></div>
+            <div class="flow-panels compact-panels">
+                <article class="glass-panel reveal-fade-up"><h3>Star Wars Sith Photobooth</h3><p>An immersive web app that transforms users into Star Wars characters using real-time AI face detection and mask overlays. Built with MediaPipe, a Flask backend, and deployed as a PWA.</p><a class="inline-link" href="https://github.com/Shiyx27/StarWarsThemed" target="_blank" rel="noopener noreferrer">GitHub</a></article>
+                <article class="glass-panel reveal-fade-up"><h3>DreamWeavers - AI Story Teller</h3><p>A magical web app that generates personalized, illustrated bedtime stories for children using AI (GROQ, Mixtral). Features text-to-speech, a story library, and PDF downloads.</p><div class="link-row"><a class="inline-link" href="https://kids-stories-phi.vercel.app/" target="_blank" rel="noopener noreferrer">Live Demo</a><a class="inline-link" href="https://github.com/Shiyx27/BedTimeStoryTeller" target="_blank" rel="noopener noreferrer">GitHub</a></div></article>
+                <article class="glass-panel reveal-fade-up"><h3>PizzaForLife</h3><p>A fun Chrome extension that replaces all images on any webpage with delicious pizza pictures. Features an on/off toggle and is built for lightweight performance.</p><div class="link-row"><a class="inline-link" href="https://chromewebstore.google.com/detail/pizza-for-life/oidhagalnmbnbmffppadfafabclbglmn" target="_blank" rel="noopener noreferrer">Chrome Store</a><a class="inline-link" href="https://github.com/Shiyx27/PizzaForLife" target="_blank" rel="noopener noreferrer">GitHub</a></div></article>
+                <article class="glass-panel reveal-fade-up"><h3>Environmental Guardian</h3><p>An interactive climate action game with real-time emergency monitoring of 200+ global coastal cities, built with PythonAnywhere and deployed on Render.</p><div class="link-row"><a class="inline-link" href="https://environmentalguardian.onrender.com/" target="_blank" rel="noopener noreferrer">Live Demo</a><a class="inline-link" href="https://www.canva.com/design/DAGqmQIms6w/EmA9jymYdVsxzPYpULSmUg/view" target="_blank" rel="noopener noreferrer">Presentation</a></div></article>
+                <article class="glass-panel reveal-fade-up"><h3>Epileptic Seizure Detection</h3><p>Developed a secure 3-tier federated learning system using AES-256 and HMAC-SHA256 for seizure detection across 25 simulated devices, ensuring complete data privacy. Engineered an ultra-lightweight Pi-optimized CNN (0.54 MB, 140K params) achieving &lt;15 ms real-time inference with 98%+ clinical accuracy. Implemented a Byzantine fault-tolerant aggregation mechanism with dynamic trust scoring, validated on 11K+ EEG samples for production deployment.</p><a class="inline-link" href="https://github.com/Shiyx27/NeuroInformaticsSummerInternship2025" target="_blank" rel="noopener noreferrer">GitHub</a></article>
+            </div>
+        </section>
+
+        <section id="skills" class="content-section">
+            <div class="section-title reveal-fade-up"><p class="mono">TECH STACK</p><h2>Core Skills</h2></div>
+            <div class="flow-panels compact-panels">
+                <article class="glass-panel reveal-fade-up"><h3>Programming</h3><p>Python, SQL, Java, MATLAB</p></article>
+                <article class="glass-panel reveal-fade-up"><h3>ML/AI</h3><p>TensorFlow, Scikit-learn, CNNs, TimeSeries, Federated Learning, Transfer Learning, PyTorch, Edge AI, Tiny ML</p></article>
+                <article class="glass-panel reveal-fade-up"><h3>Cloud &amp; Big Data</h3><p>AWS (EC2, S3, RDS, Lambda, Elastic Beanstalk, CloudWatch), Google Cloud Platform</p></article>
+                <article class="glass-panel reveal-fade-up"><h3>IoT &amp; Industrial</h3><p>Arduino, ESP32, SmartPlant Instrumentation, Sensor Data Processing, Real-time Systems</p></article>
+                <article class="glass-panel reveal-fade-up"><h3>Visualization</h3><p>PowerBI, Tableau, Excel, Google Sheets, Matplotlib, Seaborn</p></article>
+                <article class="glass-panel reveal-fade-up"><h3>Other</h3><p>Git/GitHub, Docker, Flask, Data Cleaning, Feature Engineering, LaTeX</p></article>
+            </div>
+        </section>
+
+        <section id="education" class="content-section">
+            <div class="section-title reveal-fade-up"><p class="mono">ACADEMIC PATH</p><h2>Education</h2></div>
+            <div class="flow-panels compact-panels">
+                <article class="glass-panel reveal-fade-up"><h3>Vellore Institute of Technology (2021-2025)</h3><p><strong>Bachelor of Technology - Electronics and Communication</strong></p></article>
+                <article class="glass-panel reveal-fade-up"><h3>Srimathi Sundaravalli Memorial School (2012-2021)</h3><p><strong>Higher Secondary Education - Math, Biology, Chemistry, Physics</strong></p></article>
+            </div>
+        </section>
+
+      
+
+
+
+        <section id="certificates" class="content-section">
+            <div class="section-title reveal-fade-up">
+                <p class="mono">CERTIFICATION MATRIX</p>
+                <h2>Certificates &amp; Licenses</h2>
+            </div>
+
+            <!-- INTERACTIVE TELEMETRY TABS -->
+            <div class="cert-tabs reveal-fade-up">
+                <button class="tab-btn active mono" data-target="cert-rf">RF & Hardware</button>
+                <button class="tab-btn mono" data-target="cert-cloud">Cloud & API</button>
+                <button class="tab-btn mono" data-target="cert-ai">AI & Data</button>
+                <button class="tab-btn mono" data-target="cert-med">MedTech</button>
+                <button class="tab-btn mono" data-target="cert-ops">Ops & Leadership</button>
+            </div>
+
+            <!-- CATEGORY 1: RF & HARDWARE (Visible by default) -->
+            <div id="cert-rf" class="cert-tab-content active cards-grid cert-grid">
+                <article class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-front">
+                            <h3>AstroTech</h3>
+                            <p class="mono meta">The University of Edinburgh | Nov 2023</p>
+                            <p class="cert-desc">Explored the science and technology behind astronomical discoveries, focusing on instrumentation and space-based observation.</p>
+                            <div class="cert-tags"><span>Space Systems</span><span>Astrophysics</span></div>
+                        </div>
+                        <div class="flip-card-face flip-back">
+                            <img src="certificates/AstroTech-The%20Science%20and%20Technology%20behind%20Astronomical%20Discovery-1.png" alt="AstroTech Certificate" data-lightbox>
+                            <a class="inline-link" href="certificates/AstroTech-The%20Science%20and%20Technology%20behind%20Astronomical%20Discovery-1.png" target="_blank" rel="noopener noreferrer">Open Image</a>
+                        </div>
                     </div>
-                </div>
-            </div>
+                </article>
 
-            <!-- Project 2: DreamWeavers -->
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="skill-category reveal-fade-up h-100 d-flex flex-column">
-                    <h4><i class="fas fa-magic me-2"></i> DreamWeavers - AI Story Teller</h4>
-                    <p>A magical web app that generates personalized, illustrated bedtime stories for children using AI (GROQ, Mixtral). Features text-to-speech, a story library, and PDF downloads.</p>
-                    <div class="project-links mt-auto">
-                        <a href="https://kids-stories-phi.vercel.app/" target="_blank" class="btn btn-outline-primary btn-sm"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                        <a href="https://github.com/Shiyx27/BedTimeStoryTeller" target="_blank" class="btn btn-outline-secondary btn-sm"><i class="fab fa-github"></i> GitHub</a>
+                <article class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-front">
+                            <h3>5G for Everyone</h3>
+                            <p class="mono meta">Qualcomm | Nov 2023</p>
+                            <p class="cert-desc">Mastered the foundational architecture of 5G networks, millimeter-wave tech, and next-gen cellular communications.</p>
+                            <div class="cert-tags"><span>RF</span><span>Telecom</span><span>5G</span></div>
+                        </div>
+                        <div class="flip-card-face flip-back">
+                            <img src="certificates/5G%20for%20Everyone-1.png" alt="5G for Everyone Certificate" data-lightbox>
+                            <a class="inline-link" href="certificates/5G%20for%20Everyone-1.png" target="_blank" rel="noopener noreferrer">Open Image</a>
+                        </div>
                     </div>
-                </div>
-            </div>
+                </article>
 
-            <!-- Project 3: PizzaForLife -->
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="skill-category reveal-fade-up h-100 d-flex flex-column">
-                    <h4><i class="fas fa-pizza-slice me-2"></i> PizzaForLife</h4>
-                    <p>A fun Chrome extension that replaces all images on any webpage with delicious pizza pictures. Features an on/off toggle and is built for lightweight performance.</p>
-                    <div class="project-links mt-auto">
-                        <a href="https://chromewebstore.google.com/detail/pizza-for-life/oidhagalnmbnbmffppadfafabclbglmn" target="_blank" class="btn btn-outline-primary btn-sm"><i class="fab fa-chrome"></i> Chrome Store</a>
-                        <a href="https://github.com/Shiyx27/PizzaForLife" target="_blank" class="btn btn-outline-secondary btn-sm"><i class="fab fa-github"></i> GitHub</a>
+                <article class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-front">
+                            <h3>From Nand to Tetris</h3>
+                            <p class="mono meta">The Hebrew University of Jerusalem | Aug 2025</p>
+                            <p class="cert-desc">Built a modern computer system from the ground up, starting from basic NAND logic gates to a fully functional OS.</p>
+                            <div class="cert-tags"><span>Hardware Architecture</span><span>Logic Gates</span></div>
+                        </div>
+                        <div class="flip-card-face flip-back pdf-back">
+                            <div class="pdf-preview-wrap"><iframe src="certificates/NandtoTetris.pdf#toolbar=0&navpanes=0&scrollbar=0" class="pdf-preview" title="Nand to Tetris Preview"></iframe></div>
+                            <a class="inline-link" href="certificates/NandtoTetris.pdf" target="_blank" rel="noopener noreferrer">Open Full PDF</a>
+                        </div>
                     </div>
-                </div>
-            </div>
+                </article>
 
-            <!-- Project 4: Environmental Guardian -->
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="skill-category reveal-fade-up h-100 d-flex flex-column">
-                    <h4><i class="fas fa-globe-americas me-2"></i> Environmental Guardian</h4>
-                    <p>An interactive climate action game with real-time emergency monitoring of 200+ global coastal cities, built with PythonAnywhere and deployed on Render.</p>
-                    <div class="project-links mt-auto">
-                        <a href="https://environmentalguardian.onrender.com/" target="_blank" class="btn btn-outline-primary btn-sm"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                        <a href="https://www.canva.com/design/DAGqmQIms6w/EmA9jymYdVsxzPYpULSmUg/view" target="_blank" class="btn btn-outline-info btn-sm"><i class="fas fa-file-powerpoint"></i> Presentation</a>
+                <article class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-front">
+                            <h3>Lam Research Challenge</h3>
+                            <p class="mono meta">T-Works | Nov 2024</p>
+                            <p class="cert-desc">Competed in hardware-focused engineering challenges, emphasizing precision manufacturing and material science.</p>
+                            <div class="cert-tags"><span>Hardware</span><span>R&D</span></div>
+                        </div>
+                        <div class="flip-card-face flip-back">
+                            <img src="certificates/Lam_Round2.png" alt="Lam Research Certificate" data-lightbox>
+                            <a class="inline-link" href="certificates/Lam_Round2.png" target="_blank" rel="noopener noreferrer">Open Image</a>
+                        </div>
                     </div>
-                </div>
+                </article>
             </div>
-            
-            <!-- Project 5: Epileptic Seizure Detection -->
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="skill-category reveal-fade-up h-100 d-flex flex-column">
-                    <h4><i class="fas fa-brain me-2"></i> Epileptic Seizure Detection</h4>
-                    <p>Developed a secure 3-tier federated learning system using AES-256 and HMAC-SHA256 for seizure detection across 25 simulated devices, ensuring complete data privacy. Engineered an ultra-lightweight Pi-optimized CNN (0.54 MB, 140K params) achieving <15 ms real-time inference with 98%+ clinical accuracy. Implemented a Byzantine fault-tolerant aggregation mechanism with dynamic trust scoring, validated on 11K+ EEG samples for production deployment.</p>
-                    <div class="project-links mt-auto">
-                        <a href="https://github.com/Shiyx27/NeuroInformaticsSummerInternship2025" target="_blank" class="btn btn-outline-secondary btn-sm"><i class="fab fa-github"></i> GitHub</a>
+
+            <!-- CATEGORY 2: CLOUD & API -->
+            <div id="cert-cloud" class="cert-tab-content cards-grid cert-grid">
+                <article class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-front">
+                            <h3>AWS Solutions Architect</h3>
+                            <p class="mono meta">ETHNUS | Dec 2023</p>
+                            <p class="cert-desc">Designed highly available, scalable, and secure cloud architectures utilizing deep AWS ecosystem integrations.</p>
+                            <div class="cert-tags"><span>AWS</span><span>Cloud Architecture</span></div>
+                        </div>
+                        <div class="flip-card-face flip-back">
+                            <img src="certificates/ethnus%20Internship%20Program-1.png" alt="ETHNUS AWS Certificate" data-lightbox>
+                            <a class="inline-link" href="certificates/ethnus%20Internship%20Program-1.png" target="_blank" rel="noopener noreferrer">Open Image</a>
+                        </div>
                     </div>
-                </div>
+                </article>
+
+                <article class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-front">
+                            <h3>AWS Cloud Architecting</h3>
+                            <p class="mono meta">AWS | Nov 2023</p>
+                            <p class="cert-desc">Mastered infrastructure deployment, network configurations, and robust cloud security protocols.</p>
+                            <div class="cert-tags"><span>EC2</span><span>S3</span><span>VPC</span></div>
+                        </div>
+                        <div class="flip-card-face flip-back">
+                            <img src="certificates/AWS_Academy_Cloud_Architecting_Badge-1.png" alt="AWS Cloud Architecting" data-lightbox>
+                            <a class="inline-link" href="certificates/AWS_Academy_Cloud_Architecting_Badge-1.png" target="_blank" rel="noopener noreferrer">Open Image</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-front">
+                            <h3>AWS Cloud Foundations</h3>
+                            <p class="mono meta">AWS | Oct 2023</p>
+                            <p class="cert-desc">Core fundamentals of AWS cloud concepts, billing, and core deployment strategies.</p>
+                            <div class="cert-tags"><span>Cloud Computing</span><span>AWS</span></div>
+                        </div>
+                        <div class="flip-card-face flip-back">
+                            <img src="certificates/AWS_Academy_Cloud_Foundations_Badge-1.png" alt="AWS Cloud Foundations" data-lightbox>
+                            <a class="inline-link" href="certificates/AWS_Academy_Cloud_Foundations_Badge-1.png" target="_blank" rel="noopener noreferrer">Open Image</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-front">
+                            <h3>Postman API Expert</h3>
+                            <p class="mono meta">Postman | Aug 2025</p>
+                            <p class="cert-desc">Mastered REST API development, testing automation, and lifecycle management workflows.</p>
+                            <div class="cert-tags"><span>APIs</span><span>Backend</span><span>Testing</span></div>
+                        </div>
+                        <div class="flip-card-face flip-back pdf-back">
+                            <div class="pdf-preview-wrap"><iframe src="certificates/PostMan.pdf#toolbar=0&navpanes=0&scrollbar=0" class="pdf-preview" title="Postman Certificate Preview"></iframe></div>
+                            <a class="inline-link" href="certificates/PostMan.pdf" target="_blank" rel="noopener noreferrer">Open Full PDF</a>
+                        </div>
+                    </div>
+                </article>
             </div>
-        </div>
+
+            <!-- CATEGORY 3: AI & DATA -->
+            <div id="cert-ai" class="cert-tab-content cards-grid cert-grid">
+                <article class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-front">
+                            <h3>Gen AI for BI Analysts</h3>
+                            <p class="mono meta">IBM &amp; SkillUp EdTech | Sep 2024</p>
+                            <p class="cert-desc">Applied generative AI models to business intelligence pipelines for automated insights and data parsing.</p>
+                            <div class="cert-tags"><span>GenAI</span><span>Data Analytics</span></div>
+                        </div>
+                        <div class="flip-card-face flip-back">
+                            <img src="certificates/gen%20ai%20for%20bi%20.png" alt="Generative AI BI Analysts Certificate" data-lightbox>
+                            <a class="inline-link" href="certificates/gen%20ai%20for%20bi%20.png" target="_blank" rel="noopener noreferrer">Open Image</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-front">
+                            <h3>Elevate your BI Career</h3>
+                            <p class="mono meta">SkillUp EdTech | Sep 2024</p>
+                            <p class="cert-desc">Advanced techniques combining modern LLMs with traditional BI dashboarding and forecasting.</p>
+                            <div class="cert-tags"><span>LLMs</span><span>BI Dashboards</span></div>
+                        </div>
+                        <div class="flip-card-face flip-back">
+                            <img src="certificates/ai%20for%20bi%20skillup.png" alt="SkillUp BI Certificate" data-lightbox>
+                            <a class="inline-link" href="certificates/ai%20for%20bi%20skillup.png" target="_blank" rel="noopener noreferrer">Open Image</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-front">
+                            <h3>Gen AI: Intro &amp; Apps</h3>
+                            <p class="mono meta">IBM | Sep 2024</p>
+                            <p class="cert-desc">Explored neural network foundations and real-world enterprise applications of generative models.</p>
+                            <div class="cert-tags"><span>Neural Networks</span><span>IBM Watson</span></div>
+                        </div>
+                        <div class="flip-card-face flip-back">
+                            <img src="certificates/gen%20ai%20intro%20n%20application.png" alt="IBM Intro Apps Certificate" data-lightbox>
+                            <a class="inline-link" href="certificates/gen%20ai%20intro%20n%20application.png" target="_blank" rel="noopener noreferrer">Open Image</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-front">
+                            <h3>Gen AI: Prompt Engineering</h3>
+                            <p class="mono meta">IBM | Sep 2024</p>
+                            <p class="cert-desc">Mastered structural prompting, few-shot learning, and context window optimization for AI models.</p>
+                            <div class="cert-tags"><span>Prompting</span><span>NLP</span></div>
+                        </div>
+                        <div class="flip-card-face flip-back">
+                            <img src="certificates/gen%20ai%20prompt%20engineering%20basics.png" alt="Prompt Engineering Certificate" data-lightbox>
+                            <a class="inline-link" href="certificates/gen%20ai%20prompt%20engineering%20basics.png" target="_blank" rel="noopener noreferrer">Open Image</a>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-front">
+                            <h3>Introduction to AI</h3>
+                            <p class="mono meta">IBM | Nov 2023</p>
+                            <p class="cert-desc">Foundational training in machine learning concepts, data processing, and AI ethics.</p>
+                            <div class="cert-tags"><span>Machine Learning</span><span>AI Ethics</span></div>
+                        </div>
+                        <div class="flip-card-face flip-back">
+                            <img src="certificates/Introduction%20to%20Artificial%20Intelligence%20(AI)-1.png" alt="Introduction to AI Certificate" data-lightbox>
+                            <a class="inline-link" href="certificates/Introduction%20to%20Artificial%20Intelligence%20(AI)-1.png" target="_blank" rel="noopener noreferrer">Open Image</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-front">
+                            <h3>PL-900: Power Platform</h3>
+                            <p class="mono meta">Microsoft | Nov 2023</p>
+                            <p class="cert-desc">Built automated workflows and low-code data solutions using Microsoft's Power Platform environment.</p>
+                            <div class="cert-tags"><span>Data Workflows</span><span>Microsoft</span></div>
+                        </div>
+                        <div class="flip-card-face flip-back">
+                            <img src="certificates/microsoft%20powerplatform%20fundamentals-1.png" alt="PL-900 Certificate" data-lightbox>
+                            <a class="inline-link" href="certificates/microsoft%20powerplatform%20fundamentals-1.png" target="_blank" rel="noopener noreferrer">Open Image</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- CATEGORY 4: MEDTECH -->
+            <div id="cert-med" class="cert-tab-content cards-grid cert-grid">
+                <article class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-front">
+                            <h3>Electronic Systems for Cancer Diagnosis</h3>
+                            <p class="mono meta">NPTEL | Nov 2023</p>
+                            <p class="cert-desc">Studied the electrical and hardware systems used in advanced biomedical imaging and diagnostics.</p>
+                            <div class="cert-tags"><span>Bio-Electronics</span><span>Imaging</span></div>
+                        </div>
+                        <div class="flip-card-face flip-back">
+                            <img src="certificates/Electronic%20Systems%20For%20Cancer%20Diagnosis-1.png" alt="Electronic Systems Certificate" data-lightbox>
+                            <a class="inline-link" href="certificates/Electronic%20Systems%20For%20Cancer%20Diagnosis-1.png" target="_blank" rel="noopener noreferrer">Open Image</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-front">
+                            <h3>AI-Driven Nano Healthcare</h3>
+                            <p class="mono meta">VIT | Oct 2023</p>
+                            <p class="cert-desc">Researched the intersection of nanotechnology and AI for targeted healthcare solutions.</p>
+                            <div class="cert-tags"><span>Nanotech</span><span>MedTech AI</span></div>
+                        </div>
+                        <div class="flip-card-face flip-back">
+                            <img src="certificates/AI-Driven%20Nanotechnological%20Advancement%20in%20Healthcare.jpg" alt="AI Nano Healthcare Certificate" data-lightbox>
+                            <a class="inline-link" href="certificates/AI-Driven%20Nanotechnological%20Advancement%20in%20Healthcare.jpg" target="_blank" rel="noopener noreferrer">Open Image</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-front">
+                            <h3>Human-Robot Ethics</h3>
+                            <p class="mono meta">VIT | Nov 2023</p>
+                            <p class="cert-desc">Analyzed the ethical implications and safety protocols for direct human-robot interaction environments.</p>
+                            <div class="cert-tags"><span>Robotics</span><span>Safety Protocols</span></div>
+                        </div>
+                        <div class="flip-card-face flip-back">
+                            <img src="certificates/HUMAN-ROBOT%20INTERACTIONS%20AND%20THEIR%20ETHICAL%20IMPLICATIONS-1.png" alt="HRI Ethics Certificate" data-lightbox>
+                            <a class="inline-link" href="certificates/HUMAN-ROBOT%20INTERACTIONS%20AND%20THEIR%20ETHICAL%20IMPLICATIONS-1.png" target="_blank" rel="noopener noreferrer">Open Image</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- CATEGORY 5: OPERATIONS -->
+            <div id="cert-ops" class="cert-tab-content cards-grid cert-grid">
+                <article class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-front">
+                            <h3>Code in Place Section Leader</h3>
+                            <p class="mono meta">Stanford Online | Jun 2025</p>
+                            <p class="cert-desc">Mentored students globally, teaching foundational Python programming and debugging concepts.</p>
+                            <div class="cert-tags"><span>Leadership</span><span>Python</span><span>Teaching</span></div>
+                        </div>
+                        <div class="flip-card-face flip-back pdf-back">
+                            <div class="pdf-preview-wrap"><iframe src="certificates/StanfordCodeInPlace.pdf#toolbar=0&navpanes=0&scrollbar=0" class="pdf-preview" title="Stanford Code in Place Certificate Preview"></iframe></div>
+                            <a class="inline-link" href="certificates/StanfordCodeInPlace.pdf" target="_blank" rel="noopener noreferrer">Open Full PDF</a>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-front">
+                            <h3>Supply Chain Operations</h3>
+                            <p class="mono meta">Rutgers University | Feb 2025</p>
+                            <p class="cert-desc">Learned optimization frameworks for logistics, inventory management, and global supply networks.</p>
+                            <div class="cert-tags"><span>Logistics</span><span>Optimization</span></div>
+                        </div>
+                        <div class="flip-card-face flip-back">
+                            <img src="certificates/supply%20Chain%20Operations.png" alt="Supply Chain Operations Certificate" data-lightbox>
+                            <a class="inline-link" href="certificates/supply%20Chain%20Operations.png" target="_blank" rel="noopener noreferrer">Open Image</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-front">
+                            <h3>Entrepreneurship</h3>
+                            <p class="mono meta">NPTEL | Nov 2023</p>
+                            <p class="cert-desc">Explored startup lifecycle phases, market validation, and lean business modeling.</p>
+                            <div class="cert-tags"><span>Business Strategy</span><span>Startups</span></div>
+                        </div>
+                        <div class="flip-card-face flip-back">
+                            <img src="certificates/Entrepreneurship-1.png" alt="Entrepreneurship Certificate" data-lightbox>
+                            <a class="inline-link" href="certificates/Entrepreneurship-1.png" target="_blank" rel="noopener noreferrer">Open Image</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+
+
+
+
+        <section id="extracurricular" class="content-section">
+            <div class="section-title reveal-fade-up"><p class="mono">HUMAN LAYER</p><h2>Clubs &amp; Extracurricular Activities</h2></div>
+            <div class="flow-panels compact-panels">
+                <article class="glass-panel reveal-fade-up"><h3>Fellowship Member</h3><p class="mono meta">Your Big Year | Jan 2024 – Present</p><p>Collaborating with global youth leaders on sustainability and social impact initiatives.</p></article>
+                <article class="glass-panel reveal-fade-up"><h3>Freelance Music Producer</h3><p>Composed and produced original soundtracks for short films and independent creative projects.</p></article>
+                <article class="glass-panel reveal-fade-up"><h3>Bharatanatyam Dancer</h3><p>Trained classical dancer with performance experience in cultural and traditional events.</p></article>
+                <article class="glass-panel reveal-fade-up"><h3>School Team Member</h3><p class="mono meta">VITeach | Sept 2023 – Dec 2024</p><p>Supported educational outreach by visiting rural schools and developing study materials for underprivileged students.</p></article>
+                <article class="glass-panel reveal-fade-up"><h3>Research Member</h3><p class="mono meta">Tech Researchers Club | Sept 2023 – May 2024</p><p>Engaged in research discussions and contributed to mini research projects on emerging technologies.</p></article>
+                <article class="glass-panel reveal-fade-up"><h3>Project Member</h3><p class="mono meta">IEEE Photonics Society Student Chapter, VIT Chennai | Jan 2023 – May 2024</p><p>Contributed to a project focused on bite force measurement using photonic technologies.</p></article>
+            </div>
+        </section>
+
+        <section id="languages" class="content-section">
+            <div class="section-title reveal-fade-up"><p class="mono">GLOBAL COMMUNICATION</p><h2>Human Languages</h2></div>
+            <div class="flow-panels compact-panels">
+                <article class="glass-panel reveal-fade-up"><h3>English</h3><p>IELTS Band 8 (C1 Level) – Proficient in reading, writing, and speaking</p></article>
+                <article class="glass-panel reveal-fade-up"><h3>Tamil</h3><p>Proficient – Fluent in reading, writing, and speaking</p></article>
+                <article class="glass-panel reveal-fade-up"><h3>Italian</h3><p>A2 Level – Basic proficiency in reading, writing, and speaking</p></article>
+                <article class="glass-panel reveal-fade-up"><h3>French</h3><p>A2 Level – Basic proficiency in reading, writing, and speaking</p></article>
+                <article class="glass-panel reveal-fade-up"><h3>German</h3><p>A1 Level – Basic proficiency in reading</p></article>
+                <article class="glass-panel reveal-fade-up"><h3>Spanish</h3><p>A1 Level – Basic proficiency in reading</p></article>
+                <article class="glass-panel reveal-fade-up"><h3>Kannada</h3><p>Basic proficiency in speaking</p></article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer mono">
+        <p>Telemetry uplink stable • Crafted for RF + Space Systems</p>
+    </footer>
+
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close image viewer">&times;</button>
+        <img id="lightboxImage" class="lightbox-image" src="" alt="">
     </div>
 
-    <!-- Core Skills Section -->
-    <div class="container content-section" id="skills">
-        <h2 class="section-title reveal-fade-up">Core Skills</h2>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="skill-category reveal-fade-up">
-                    <h4>Programming</h4>
-                    <p>Python, SQL, Java, MATLAB</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="skill-category reveal-fade-up">
-                    <h4>ML/AI</h4>
-                    <p>TensorFlow, Scikit-learn, CNNs, TimeSeries, Federated Learning, Transfer Learning, PyTorch, Edge AI, Tiny ML</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="skill-category reveal-fade-up">
-                    <h4>Cloud & Big Data</h4>
-                    <p>AWS (EC2, S3, RDS, Lambda, Elastic Beanstalk, CloudWatch), Google Cloud Platform</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="skill-category reveal-fade-up">
-                    <h4>IoT & Industrial</h4>
-                    <p>Arduino, ESP32, SmartPlant Instrumentation, Sensor Data Processing, , Real-time Systems</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="skill-category reveal-fade-up">
-                    <h4>Visualization</h4>
-                    <p>PowerBI, Tableau, Excel, Google Sheets, Matplotlib, Seaborn</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="skill-category reveal-fade-up">
-                    <h4>Other</h4>
-                    <p>Git/GitHub, Docker, Flask, Data Cleaning, Feature Engineering, LaTeX</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Education Section -->
-    <div class="container content-section" id="education">
-        <h2 class="section-title reveal-fade-up">Education</h2>
-        <div class="row justify-content-center">
-            <div class="col-md-6 mb-4">
-                <div class="skill-category reveal-fade-up h-100">
-                    <h4>Vellore Institute of Technology (2021-2025)</h4>
-                    <p><strong>Bachelor of Technology - Electronics and Communication</strong></p>
-                    
-                </div>
-            </div>
-            <div class="col-md-6 mb-4">
-                <div class="skill-category reveal-fade-up h-100">
-                    <h4>Srimathi Sundaravalli Memorial School (2012-2021)</h4>
-                    <p><strong>Higher Secondary Education - Math, Biology, Chemistry, Physics</strong></p>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Certificates Section -->
-    <div class="container content-section" id="certificates">
-        <h2 class="section-title reveal-fade-up">Certificates & Licenses</h2>
-        <div class="row">
-          
-          <!-- Card 18: Nand to Tetris -->
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card h-100 shadow-sm certificate-card">
-              <div class="card-body">
-                <div class="d-flex align-items-center mb-2">
-                  <img
-                    src="images/hebrew_university_logo.jpg"
-                    alt="The Hebrew University of Jerusalem"
-                    class="issuer-logo"
-                  />
-                  <h5 class="card-title mb-0">Build a Modern Computer from First Principles: From Nand to Tetris</h5>
-                </div>
-                <p class="card-text">
-                  <strong>Issued By:</strong> The Hebrew University of Jerusalem<br/>
-                  <strong>Date:</strong> Aug 2025<br/>
-                </p>
-                <button
-                  type="button"
-                  class="btn btn-outline-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#certificateModal18"
-                >
-                  <i class="fas fa-eye"></i> View Certificate
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- End Card 18 -->
-
-          <!-- Card 19: Postman API Fundamentals -->
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card h-100 shadow-sm certificate-card">
-              <div class="card-body">
-                <div class="d-flex align-items-center mb-2">
-                  <img
-                    src="images/postman_logo.jpg"
-                    alt="Postman"
-                    class="issuer-logo"
-                  />
-                  <h5 class="card-title mb-0">Postman API Fundamentals Student Expert</h5>
-                </div>
-                <p class="card-text">
-                  <strong>Issued By:</strong> Postman<br/>
-                  <strong>Date:</strong> Aug 2025<br/>
-                </p>
-                <button
-                  type="button"
-                  class="btn btn-outline-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#certificateModal19"
-                >
-                  <i class="fas fa-eye"></i> View Certificate
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- End Card 19 -->
-
-          <!-- Card 20: Stanford Code in Place -->
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card h-100 shadow-sm certificate-card">
-              <div class="card-body">
-                <div class="d-flex align-items-center mb-2">
-                  <img
-                    src="images/stanford.jpg"
-                    alt="Stanford Online"
-                    class="issuer-logo"
-                  />
-                  <h5 class="card-title mb-0">Code in Place Section Leader</h5>
-                </div>
-                <p class="card-text">
-                  <strong>Issued By:</strong> Stanford Online<br/>
-                  <strong>Date:</strong> Jun 2025<br/>
-                </p>
-                <button
-                  type="button"
-                  class="btn btn-outline-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#certificateModal20"
-                >
-                  <i class="fas fa-eye"></i> View Certificate
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- End Card 20 -->
-          
-          <!-- Card 1: Supply Chain Operations (Rutgers) -->
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card h-100 shadow-sm certificate-card">
-              <div class="card-body">
-                <div class="d-flex align-items-center mb-2">
-                  <img
-                    src="images/RutgersUni_icon.jpeg"
-                    alt="Rutgers University"
-                    class="issuer-logo"
-                  />
-                  <h5 class="card-title mb-0">Supply Chain Operations</h5>
-                </div>
-                <p class="card-text">
-                  <strong>Issued By:</strong> Rutgers University<br/>
-                  <strong>Date:</strong> Feb 2025<br/>
-                </p>
-                <button
-                  type="button"
-                  class="btn btn-outline-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#certificateModal1"
-                >
-                  <i class="fas fa-eye"></i> View Certificate
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- End Card 1 -->
-    
-          <!-- Card 2: Lam Research Challenge Round 2 (T-Works) -->
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card h-100 shadow-sm certificate-card">
-              <div class="card-body">
-                <div class="d-flex align-items-center mb-2">
-                  <img
-                    src="images/Tworks_icon.jpeg"
-                    alt="T-Works"
-                    class="issuer-logo"
-                  />
-                  <h5 class="card-title mb-0">Lam Research Challenge Round 2</h5>
-                </div>
-                <p class="card-text">
-                  <strong>Issued By:</strong> T-Works<br/>
-                  <strong>Date:</strong> Nov 2024<br/>
-                </p>
-                <button
-                  type="button"
-                  class="btn btn-outline-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#certificateModal2"
-                >
-                  <i class="fas fa-eye"></i> View Certificate
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- End Card 2 -->
-    
-          <!-- Card 3: Generative AI for BI Analysts (IBM & SkillUp) -->
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card h-100 shadow-sm certificate-card">
-              <div class="card-body">
-                <div class="d-flex align-items-center mb-2">
-                  <img
-                    src="images/IBM_icon.jpeg"
-                    alt="IBM"
-                    class="issuer-logo"
-                  />
-                  <h5 class="card-title mb-0">
-                    Generative AI for BI Analysts
-                  </h5>
-                </div>
-                <p class="card-text">
-                  <strong>Issued By:</strong> IBM &amp; SkillUp EdTech<br/>
-                  <strong>Date:</strong> Sep 2024<br/>
-                </p>
-                <button
-                  type="button"
-                  class="btn btn-outline-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#certificateModal3"
-                >
-                  <i class="fas fa-eye"></i> View Certificate
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- End Card 3 -->
-    
-          <!-- Card 4: Generative AI: Elevate your BI Career (SkillUp) -->
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card h-100 shadow-sm certificate-card">
-              <div class="card-body">
-                <div class="d-flex align-items-center mb-2">
-                  <img
-                    src="images/SkillUpEdTech_icon.png"
-                    alt="SkillUp EdTech"
-                    class="issuer-logo"
-                  />
-                  <h5 class="card-title mb-0">
-                    Generative AI: Elevate your BI Career
-                  </h5>
-                </div>
-                <p class="card-text">
-                  <strong>Issued By:</strong> SkillUp EdTech<br/>
-                  <strong>Date:</strong> Sep 2024<br/>
-                </p>
-                <button
-                  type="button"
-                  class="btn btn-outline-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#certificateModal4"
-                >
-                  <i class="fas fa-eye"></i> View Certificate
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- End Card 4 -->
-    
-          <!-- Card 5: Generative AI: Intro & Apps (IBM) -->
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card h-100 shadow-sm certificate-card">
-              <div class="card-body">
-                <div class="d-flex align-items-center mb-2">
-                  <img
-                    src="images/IBM_icon.jpeg"
-                    alt="IBM"
-                    class="issuer-logo"
-                  />
-                  <h5 class="card-title mb-0">
-                    Generative AI: Intro &amp; Apps
-                  </h5>
-                </div>
-                <p class="card-text">
-                  <strong>Issued By:</strong> IBM<br/>
-                  <strong>Date:</strong> Sep 2024<br/>
-                </p>
-                <button
-                  type="button"
-                  class="btn btn-outline-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#certificateModal5"
-                >
-                  <i class="fas fa-eye"></i> View Certificate
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- End Card 5 -->
-    
-          <!-- Card 6: Generative AI: Prompt Engineering (IBM) -->
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card h-100 shadow-sm certificate-card">
-              <div class="card-body">
-                <div class="d-flex align-items-center mb-2">
-                  <img
-                    src="images/IBM_icon.jpeg"
-                    alt="IBM"
-                    class="issuer-logo"
-                  />
-                  <h5 class="card-title mb-0">
-                    Generative AI: Prompt Engineering
-                  </h5>
-                </div>
-                <p class="card-text">
-                  <strong>Issued By:</strong> IBM<br/>
-                  <strong>Date:</strong> Sep 2024<br/>
-                </p>
-                <button
-                  type="button"
-                  class="btn btn-outline-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#certificateModal6"
-                >
-                  <i class="fas fa-eye"></i> View Certificate
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- End Card 6 -->
-    
-          <!-- Card 7: AWS Solutions Architect -
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card h-100 shadow-sm certificate-card">
-              <div class="card-body">
-                <div class="d-flex align-items-center mb-2">
-                  <img
-                    src="images/Ethnus_icon.jpeg"
-                    alt="ETHNUS"
-                    class="issuer-logo"
-                  />
-                  <h5 class="card-title mb-0">
-                    AWS Solutions Architect - Associate
-                  </h5>
-                </div>
-                <p class="card-text">
-                  <strong>Issued By:</strong> ETHNUS<br/>
-                  <strong>Date:</strong> Dec 2023<br/>
-                </p>
-                <button
-                  type="button"
-                  class="btn btn-outline-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#certificateModal7"
-                >
-                  <i class="fas fa-eye"></i> View Certificate
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- End Card 7 -->
-    
-          <!-- Card 8: 5G for Everyone (Qualcomm) -->
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card h-100 shadow-sm certificate-card">
-              <div class="card-body">
-                <div class="d-flex align-items-center mb-2">
-                  <img
-                    src="images/Qualcomm_icon.jpeg"
-                    alt="Qualcomm"
-                    class="issuer-logo"
-                  />
-                  <h5 class="card-title mb-0">5G for Everyone</h5>
-                </div>
-                <p class="card-text">
-                  <strong>Issued By:</strong> Qualcomm<br/>
-                  <strong>Date:</strong> Nov 2023<br/>
-                </p>
-                <button
-                  type="button"
-                  class="btn btn-outline-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#certificateModal8"
-                >
-                  <i class="fas fa-eye"></i> View Certificate
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- End Card 8 -->
-    
-          <!-- Card 9: AWS Cloud Solution Architecting (AWS) -->
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card h-100 shadow-sm certificate-card">
-              <div class="card-body">
-                <div class="d-flex align-items-center mb-2">
-                  <img
-                    src="images/aws_icon.jpeg"
-                    alt="Amazon Web Services"
-                    class="issuer-logo"
-                  />
-                  <h5 class="card-title mb-0">
-                    AWS Cloud Solution Architecting
-                  </h5>
-                </div>
-                <p class="card-text">
-                  <strong>Issued By:</strong> AWS<br/>
-                  <strong>Date:</strong> Nov 2023<br/>
-                </p>
-                <button
-                  type="button"
-                  class="btn btn-outline-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#certificateModal9"
-                >
-                  <i class="fas fa-eye"></i> View Certificate
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- End Card 9 -->
-    
-          <!-- Card 10: AstroTech (University of Edinburgh) -->
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card h-100 shadow-sm certificate-card">
-              <div class="card-body">
-                <div class="d-flex align-items-center mb-2">
-                  <img
-                    src="images/Edinburgh_icon.jpeg"
-                    alt="University of Edinburgh"
-                    class="issuer-logo"
-                  />
-                  <h5 class="card-title mb-0">AstroTech</h5>
-                </div>
-                <p class="card-text">
-                  <strong>Issued By:</strong> The University of Edinburgh<br/>
-                  <strong>Date:</strong> Nov 2023<br/>
-                </p>
-                <button
-                  type="button"
-                  class="btn btn-outline-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#certificateModal10"
-                >
-                  <i class="fas fa-eye"></i> View Certificate
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- End Card 10 -->
-    
-          <!-- Card 11: Electronic Systems for Cancer Diagnosis (NPTEL) -->
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card h-100 shadow-sm certificate-card">
-              <div class="card-body">
-                <div class="d-flex align-items-center mb-2">
-                  <img
-                    src="images/iisc_icon.jpeg"
-                    alt="NPTEL- IISc"
-                    class="issuer-logo"
-                  />
-                  <h5 class="card-title mb-0">
-                    Electronic Systems for Cancer Diagnosis
-                  </h5>
-                </div>
-                <p class="card-text">
-                  <strong>Issued By:</strong> NPTEL<br/>
-                  <strong>Date:</strong> Nov 2023<br/>
-                </p>
-                <button
-                  type="button"
-                  class="btn btn-outline-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#certificateModal11"
-                >
-                  <i class="fas fa-eye"></i> View Certificate
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- End Card 11 -->
-    
-          <!-- Card 12: Entrepreneurship (NPTEL) -->
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card h-100 shadow-sm certificate-card">
-              <div class="card-body">
-                <div class="d-flex align-items-center mb-2">
-                  <img
-                    src="images/iitM_icon.jpeg"
-                    alt="NPTEL - IIT Madras"
-                    class="issuer-logo"
-                  />
-                  <h5 class="card-title mb-0">Entrepreneurship</h5>
-                </div>
-                <p class="card-text">
-                  <strong>Issued By:</strong> NPTEL<br/>
-                  <strong>Date:</strong> Nov 2023<br/>
-                </p>
-                <button
-                  type="button"
-                  class="btn btn-outline-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#certificateModal12"
-                >
-                  <i class="fas fa-eye"></i> View Certificate
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- End Card 12 -->
-    
-          <!-- Card 13: Human-Robot Interactions & Ethics (VIT) -->
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card h-100 shadow-sm certificate-card">
-              <div class="card-body">
-                <div class="d-flex align-items-center mb-2">
-                  <img
-                    src="images/vit_icon.jpeg"
-                    alt="VIT"
-                    class="issuer-logo"
-                  />
-                  <h5 class="card-title mb-0">
-                    Human-Robot Interactions &amp; Ethics
-                  </h5>
-                </div>
-                <p class="card-text">
-                  <strong>Issued By:</strong> VIT<br/>
-                  <strong>Date:</strong> Nov 2023<br/>
-                </p>
-                <button
-                  type="button"
-                  class="btn btn-outline-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#certificateModal13"
-                >
-                  <i class="fas fa-eye"></i> View Certificate
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- End Card 13 -->
-    
-          <!-- Card 14: Introduction to AI (IBM) -->
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card h-100 shadow-sm certificate-card">
-              <div class="card-body">
-                <div class="d-flex align-items-center mb-2">
-                  <img
-                    src="images/IBM_icon.jpeg"
-                    alt="IBM"
-                    class="issuer-logo"
-                  />
-                  <h5 class="card-title mb-0">
-                    Introduction to AI
-                  </h5>
-                </div>
-                <p class="card-text">
-                  <strong>Issued By:</strong> IBM<br/>
-                  <strong>Date:</strong> Nov 2023<br/>
-                </p>
-                <button
-                  type="button"
-                  class="btn btn-outline-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#certificateModal14"
-                >
-                  <i class="fas fa-eye"></i> View Certificate
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- End Card 14 -->
-    
-          <!-- Card 15: PL-900: Power Platform Fundamentals (Microsoft) -->
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card h-100 shadow-sm certificate-card">
-              <div class="card-body">
-                <div class="d-flex align-items-center mb-2">
-                  <img
-                    src="images/Microsoft_icon.jpeg"
-                    alt="Microsoft"
-                    class="issuer-logo"
-                  />
-                  <h5 class="card-title mb-0">
-                    PL-900: Power Platform Fundamentals
-                  </h5>
-                </div>
-                <p class="card-text">
-                  <strong>Issued By:</strong> Microsoft<br/>
-                  <strong>Date:</strong> Nov 2023<br/>
-                </p>
-                <button
-                  type="button"
-                  class="btn btn-outline-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#certificateModal15"
-                >
-                  <i class="fas fa-eye"></i> View Certificate
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- End Card 15 -->
-
-          <!-- Card 16: AI-Driven Nanotechnological Healthcare (VIT) -->
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card h-100 shadow-sm certificate-card">
-              <div class="card-body">
-                <div class="d-flex align-items-center mb-2">
-                  <img
-                    src="images/vit_icon.jpeg"
-                    alt="VIT"
-                    class="issuer-logo"
-                  />
-                  <h5 class="card-title mb-0">
-                    AI-Driven Nanotechnological Healthcare
-                  </h5>
-                </div>
-                <p class="card-text">
-                  <strong>Issued By:</strong> VIT<br/>
-                  <strong>Date:</strong> Oct 2023<br/>
-                </p>
-                <button
-                  type="button"
-                  class="btn btn-outline-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#certificateModal16"
-                >
-                  <i class="fas fa-eye"></i> View Certificate
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- End Card 16 -->
-    
-          <!-- Card 17: AWS Academy Cloud Foundations (AWS) -->
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card h-100 shadow-sm certificate-card">
-              <div class="card-body">
-                <div class="d-flex align-items-center mb-2">
-                  <img
-                    src="images/aws_icon.jpeg"
-                    alt="AWS"
-                    class="issuer-logo"
-                  />
-                  <h5 class="card-title mb-0">
-                    AWS Academy Cloud Foundations
-                  </h5>
-                </div>
-                <p class="card-text">
-                  <strong>Issued By:</strong> AWS<br/>
-                  <strong>Date:</strong> Oct 2023<br/>
-                </p>
-                <button
-                  type="button"
-                  class="btn btn-outline-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#certificateModal17"
-                >
-                  <i class="fas fa-eye"></i> View Certificate
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- End Card 17 -->
-
-          <!-- ====== MODALS: Certificates 1 - 17 (restored) ====== -->
-          <!-- Modal 1 -->
-          <div class="modal fade" id="certificateModal1" tabindex="-1" aria-labelledby="certificateModal1Label" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="certificateModal1Label">Supply Chain Operations - Rutgers</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center">
-                  <img src="certificates/supply Chain Operations.png" alt="Rutgers Certificate" class="img-fluid" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End Modal 1 -->
-
-          <!-- Modal 2 -->
-          <div class="modal fade" id="certificateModal2" tabindex="-1" aria-labelledby="certificateModal2Label" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="certificateModal2Label">Lam Research Challenge Round 2 - T-Works</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center">
-                  <img src="certificates/Lam_Round2.png" alt="Lam Research Challenge Round 2" class="img-fluid" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End Modal 2 -->
-
-          <!-- Modal 3 -->
-          <div class="modal fade" id="certificateModal3" tabindex="-1" aria-labelledby="certificateModal3Label" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="certificateModal3Label">Generative AI for BI Analysts - IBM & SkillUp</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center">
-                  <img src="certificates/gen ai for bi .png" alt="IBM BI Analysts" class="img-fluid" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End Modal 3 -->
-
-          <!-- Modal 4 -->
-          <div class="modal fade" id="certificateModal4" tabindex="-1" aria-labelledby="certificateModal4Label" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="certificateModal4Label">Generative AI: Elevate your BI Career - SkillUp</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center">
-                  <img src="certificates/ai for bi skillup.png" alt="SkillUp Generative AI" class="img-fluid" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End Modal 4 -->
-
-          <!-- Modal 5 -->
-          <div class="modal fade" id="certificateModal5" tabindex="-1" aria-labelledby="certificateModal5Label" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="certificateModal5Label">Generative AI: Intro & Apps - IBM</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center">
-                  <img src="certificates/gen ai intro n application.png" alt="IBM Intro & Apps" class="img-fluid" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End Modal 5 -->
-
-          <!-- Modal 6 -->
-          <div class="modal fade" id="certificateModal6" tabindex="-1" aria-labelledby="certificateModal6Label" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="certificateModal6Label">Generative AI: Prompt Engineering - IBM</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center">
-                  <img src="certificates/gen ai prompt engineering basics.png" alt="IBM Prompt Engineering" class="img-fluid" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End Modal 6 -->
-
-          <!-- Modal 7 -->
-          <div class="modal fade" id="certificateModal7" tabindex="-1" aria-labelledby="certificateModal7Label" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="certificateModal7Label">AWS Solutions Architect - Associate (ETHNUS)</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center">
-                  <img src="certificates/ethnus Internship Program-1.png" alt="ETHNUS AWS Solutions Architect" class="img-fluid" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End Modal 7 -->
-
-          <!-- Modal 8 -->
-          <div class="modal fade" id="certificateModal8" tabindex="-1" aria-labelledby="certificateModal8Label" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="certificateModal8Label">5G for Everyone - Qualcomm</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center">
-                  <img src="certificates/5G for Everyone-1.png" alt="Qualcomm 5G for Everyone" class="img-fluid" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End Modal 8 -->
-
-          <!-- Modal 9 -->
-          <div class="modal fade" id="certificateModal9" tabindex="-1" aria-labelledby="certificateModal9Label" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="certificateModal9Label">AWS Cloud Solution Architecting</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center">
-                  <img src="certificates/AWS_Academy_Cloud_Architecting_Badge-1.png" alt="AWS Cloud Solution Architecting" class="img-fluid" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End Modal 9 -->
-
-          <!-- Modal 10 -->
-          <div class="modal fade" id="certificateModal10" tabindex="-1" aria-labelledby="certificateModal10Label" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="certificateModal10Label">AstroTech - The University of Edinburgh</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center">
-                  <img src="certificates/AstroTech-The Science and Technology behind Astronomical Discovery-1.png" alt="AstroTech Certificate" class="img-fluid" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End Modal 10 -->
-
-          <!-- Modal 11 -->
-          <div class="modal fade" id="certificateModal11" tabindex="-1" aria-labelledby="certificateModal11Label" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="certificateModal11Label">Electronic Systems for Cancer Diagnosis - NPTEL</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center">
-                  <img src="certificates/Electronic Systems For Cancer Diagnosis-1.png" alt="NPTEL Cancer Diagnosis" class="img-fluid" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End Modal 11 -->
-
-          <!-- Modal 12 -->
-          <div class="modal fade" id="certificateModal12" tabindex="-1" aria-labelledby="certificateModal12Label" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="certificateModal12Label">Entrepreneurship - NPTEL</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center">
-                  <img src="certificates/Entrepreneurship-1.png" alt="NPTEL Entrepreneurship" class="img-fluid" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End Modal 12 -->
-
-          <!-- Modal 13 -->
-          <div class="modal fade" id="certificateModal13" tabindex="-1" aria-labelledby="certificateModal13Label" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="certificateModal13Label">Human-Robot Interactions &amp; Ethics - VIT</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center">
-                  <img src="certificates/HUMAN-ROBOT INTERACTIONS AND THEIR ETHICAL IMPLICATIONS-1.png" alt="VIT HRI Certificate" class="img-fluid" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End Modal 13 -->
-
-          <!-- Modal 14 -->
-          <div class="modal fade" id="certificateModal14" tabindex="-1" aria-labelledby="certificateModal14Label" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="certificateModal14Label">Introduction to AI - IBM</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center">
-                  <img src="certificates/Introduction to Artificial Intelligence (AI)-1.png" alt="IBM Intro to AI" class="img-fluid" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End Modal 14 -->
-
-          <!-- Modal 15 -->
-          <div class="modal fade" id="certificateModal15" tabindex="-1" aria-labelledby="certificateModal15Label" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="certificateModal15Label">PL-900: Power Platform Fundamentals - Microsoft</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center">
-                  <img src="certificates/microsoft powerplatform fundamentals-1.png" alt="Microsoft PL-900" class="img-fluid" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End Modal 15 -->
-
-          <!-- Modal 16 -->
-          <div class="modal fade" id="certificateModal16" tabindex="-1" aria-labelledby="certificateModal16Label" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="certificateModal16Label">AI-Driven Nanotechnological Healthcare - VIT</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center">
-                  <img src="certificates/AI-Driven Nanotechnological Advancement in Healthcare.jpg" alt="VIT Nanotechnological Healthcare" class="img-fluid" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End Modal 16 -->
-
-          <!-- Modal 17 -->
-          <div class="modal fade" id="certificateModal17" tabindex="-1" aria-labelledby="certificateModal17Label" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="certificateModal17Label">AWS Academy Cloud Foundations</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center">
-                  <img src="certificates/AWS_Academy_Cloud_Foundations_Badge-1.png" alt="AWS Academy Cloud Foundations" class="img-fluid" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End Modal 17 -->
-
-          <!-- ====== END: RESTORED MODALS 1 - 17 ====== -->
-
-          <!-- Modal 18: Nand to Tetris -->
-          <div class="modal fade" id="certificateModal18" tabindex="-1" aria-labelledby="certificateModal18Label" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="certificateModal18Label">Build a Modern Computer from First Principles: From Nand to Tetris</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center">
-                  <iframe src="certificates/NandtoTetris.pdf" width="100%" height="500px"></iframe>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End Modal 18 -->
-
-          <!-- Modal 19: Postman API Fundamentals -->
-          <div class="modal fade" id="certificateModal19" tabindex="-1" aria-labelledby="certificateModal19Label" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="certificateModal19Label">Postman API Fundamentals Student Expert</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center">
-                  <iframe src="certificates/PostMan.pdf" width="100%" height="500px"></iframe>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End Modal 19 -->
-
-          <!-- Modal 20: Stanford Code in Place -->
-          <div class="modal fade" id="certificateModal20" tabindex="-1" aria-labelledby="certificateModal20Label" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="certificateModal20Label">Code in Place Section Leader</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center">
-                  <iframe src="certificates/StanfordCodeInPlace.pdf" width="100%" height="500px"></iframe>
-                </div>
-              </div>
-            </div>
-          </div>
-      <!-- End Modal 20 -->
-  </div>
-
-  <!-- Clubs & Extracurricular Activities Section (card grid like Core Skills) -->
-  <div class="container content-section" id="extracurricular">
-    <h2 class="section-title reveal-fade-up">Clubs & Extracurricular Activities</h2>
-    <div class="row">
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="skill-category reveal-fade-up h-100">
-          <h4>Fellowship Member</h4>
-          <p><strong>Your Big Year</strong> | Jan 2024 – Present</p>
-          <p>Collaborating with global youth leaders on sustainability and social impact initiatives.</p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="skill-category reveal-fade-up h-100">
-          <h4>Freelance Music Producer</h4>
-          <p>Composed and produced original soundtracks for short films and independent creative projects.</p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="skill-category reveal-fade-up h-100">
-          <h4>Bharatanatyam Dancer</h4>
-          <p>Trained classical dancer with performance experience in cultural and traditional events.</p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="skill-category reveal-fade-up h-100">
-          <h4>School Team Member</h4>
-          <p><strong>VITeach</strong> | Sept 2023 – Dec 2024</p>
-          <p>Supported educational outreach by visiting rural schools and developing study materials for underprivileged students.</p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="skill-category reveal-fade-up h-100">
-          <h4>Research Member</h4>
-          <p><strong>Tech Researchers Club</strong> | Sept 2023 – May 2024</p>
-          <p>Engaged in research discussions and contributed to mini research projects on emerging technologies.</p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="skill-category reveal-fade-up h-100">
-          <h4>Project Member</h4>
-          <p><strong>IEEE Photonics Society Student Chapter, VIT Chennai</strong> | Jan 2023 – May 2024</p>
-          <p>Contributed to a project focused on bite force measurement using photonic technologies.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Human Languages Section (card grid like Core Skills) -->
-  <div class="container content-section" id="languages">
-    <h2 class="section-title reveal-fade-up">Human Languages</h2>
-    <div class="row">
-      <div class="col-sm-6 col-md-4 mb-4">
-        <div class="skill-category reveal-fade-up h-100">
-          <h4>English</h4>
-          <p>IELTS Band 8 (C1 Level) – Proficient in reading, writing, and speaking</p>
-        </div>
-      </div>
-
-      <div class="col-sm-6 col-md-4 mb-4">
-        <div class="skill-category reveal-fade-up h-100">
-          <h4>Tamil</h4>
-          <p>Proficient – Fluent in reading, writing, and speaking</p>
-        </div>
-      </div>
-
-      <div class="col-sm-6 col-md-4 mb-4">
-        <div class="skill-category reveal-fade-up h-100">
-          <h4>Italian</h4>
-          <p>A2 Level – Basic proficiency in reading, writing, and speaking</p>
-        </div>
-      </div>
-
-      <div class="col-sm-6 col-md-4 mb-4">
-        <div class="skill-category reveal-fade-up h-100">
-          <h4>French</h4>
-          <p>A2 Level – Basic proficiency in reading, writing, and speaking</p>
-        </div>
-      </div>
-
-      <div class="col-sm-6 col-md-4 mb-4">
-        <div class="skill-category reveal-fade-up h-100">
-          <h4>German</h4>
-          <p>A1 Level – Basic proficiency in reading</p>
-        </div>
-      </div>
-
-      <div class="col-sm-6 col-md-4 mb-4">
-        <div class="skill-category reveal-fade-up h-100">
-          <h4>Spanish</h4>
-          <p>A1 Level – Basic proficiency in reading</p>
-        </div>
-      </div>
-
-      <div class="col-sm-6 col-md-4 mb-4">
-        <div class="skill-category reveal-fade-up h-100">
-          <h4>Kannada</h4>
-          <p>Basic proficiency in speaking</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
